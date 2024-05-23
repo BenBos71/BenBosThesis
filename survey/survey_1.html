@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Basic HTML Form</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        window.addEventListener('load', function() {
+            // Array of image filenames
+            var images = [
+                "happy",
+                "sad",
+                // Add more image filenames as needed
+            ];
+
+            // Generate a random index to select a random image from the array
+            var randomIndex = Math.floor(Math.random() * images.length);
+
+            // Get the random image filename
+            var image_dir = images[randomIndex];
+
+            // Set the source of the image element to display the random image
+            document.getElementById("image_display").src = "../images/survey_images/" + image_dir + "/1.jpg";
+            document.getElementById("sentence").textContent = "My old cat has died and gone to the next life.";
+            sessionStorage.setItem("image_dir", image_dir);
+
+            // Get dropdown var
+            var dropdownMenu = document.getElementById("myDropdown");
+            dropdownMenu.style.display = "none";
+        });
+    </script>
+    <!-- Include files -->
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <img src="images/wsuLogo.png" alt="Weber State University Logo"/>
+    <br />
+    <img id="image_display" src="" alt="" class="ind_pic"/>
+    <br />
+    <p id="sentence"></p>
+    <br />
+    <form id="demoForm">
+        <div class="dropdown">
+            <button onclick="toggleDropdown()" class="dropbtn"></button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#" onclick="selectOption('Happy')">Happy</a>
+                <a href="#" onclick="selectOption('Sad')">Sad</a>
+            </div>
+      </div>
+      <input type="submit"  value="Next"/>
+    </form>
+    <br />
+    <script type="text/javascript">
+        document.getElementById('demoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+            next();
+         });
+
+        function toggleDropdown() {
+            var dropdownMenu = document.getElementById("myDropdown");
+            if (dropdownMenu.style.display === "none") {
+                dropdownMenu.style.display = "block";
+            }
+            else {
+                dropdownMenu.style.display = "none";
+            }
+        }
+
+        function selectOption(optionText) {
+            var dropdownButton = document.querySelector(".dropbtn");
+            dropdownButton.textContent = optionText;
+
+            var dropdownMenu = document.getElementById("myDropdown");
+            dropdownMenu.style.display = "none"; // Collapse the dropdown menu after selection  
+        }
+
+        function next()
+        {
+            // emotions.push(document.querySelector(".dropbtn").textContent);
+            window.location.assign('survey_2.html');
+        }
+    </script>
+  </body>
+</html>

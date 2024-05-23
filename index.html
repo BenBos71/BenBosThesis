@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Basic HTML Form</title>
+  </head>
+  <body>
+    <img src="images/wsuLogo.png" alt="Description of the image"/>
+    <br />
+    <!-- <form onsubmit="return demo_to_session()"> -->
+    <form id="demoForm">
+      <label for="dAge">Age:</label>
+      <input type="number" id="dAge" name="dAge" required />
+      <br /><br />
+      <label for="dSex">Sex:</label>
+      <input type="text" id="dSex" name="dSex" required />
+      <br /><br />
+      <input type="submit"  value="Submit!"/>
+    </form>
+    <script type="text/javascript">
+        document.getElementById('demoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+            demo_to_session();
+         });
+
+        function demo_to_session() {
+            var sAge = document.getElementById("dAge").value;
+            var sSex = document.getElementById("dSex").value;
+
+            console.log("Age:", sAge); // Debugging
+            console.log("Sex:", sSex); // Debugging
+
+            sessionStorage.setItem("age", sAge);
+            sessionStorage.setItem("sex", sSex);
+            
+            // Navigate to the new page
+            window.location.assign('survey/survey_1.html');
+
+            // No need to return false as default action is already prevented
+        }
+    </script>
+  </body>
+</html>
