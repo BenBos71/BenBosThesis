@@ -7,7 +7,7 @@
     <script>
         window.addEventListener('load', function() {
             // Set the source of the image element to display the random image
-            document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "32.jpg";
+            document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/32.jpg";
             document.getElementById("sentence").textContent = "The couple held hands as they walked along the beach.";
 
             // Get dropdown var
@@ -25,22 +25,23 @@
     <br />
     <p id="sentence"></p>
     <br />
-    <form id="demoForm">
+    <form id="demoForm" >
         <div class="dropdown">
-            <button onclick="toggleDropdown()" class="dropbtn"></button>
+            <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Select an option:</button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" onclick="selectOption('Happy')">Happy</a>
                 <a href="#" onclick="selectOption('Sad')">Sad</a>
             </div>
-      </div>
-      <input type="submit"  value="Next"/>
+        </div>
+        <input type="hidden" id="selectedOption" name="selectedOption" value="">
+        <input type="submit"  value="Next"/>
     </form>
     <br />
     <script type="text/javascript">
         document.getElementById('demoForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form from submitting the traditional way
-            next();
-         });
+            validateForm(event); // Call the validation function
+        });
 
         function toggleDropdown() {
             var dropdownMenu = document.getElementById("myDropdown");
@@ -53,11 +54,36 @@
         }
 
         function selectOption(optionText) {
-            var dropdownButton = document.querySelector(".dropbtn");
+            var dropdownButton = document.getElementById("dropbtn");
             dropdownButton.textContent = optionText;
 
             var dropdownMenu = document.getElementById("myDropdown");
             dropdownMenu.style.display = "none"; // Collapse the dropdown menu after selection  
+            
+            document.getElementById("selectedOption").value = optionText;
+        }
+
+        function validateForm(event) {
+            var selectedOption = document.getElementById("selectedOption").value;
+            if (!selectedOption) {
+                alert("Please select an option from the dropdown.");
+                event.preventDefault();
+            }
+            else {
+                next(); // Call next if validation is successful
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
         }
 
         function next()
