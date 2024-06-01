@@ -2,7 +2,7 @@ var sAge;
 var sSex;
 var sentence_index = 0;
 var image_num = 2;
-var emotions = []
+// var emotions = []
 
 // Array of sentences
 var sentences = [
@@ -92,24 +92,6 @@ function next_submit()
     }
 
 }
-
-// JavaScript function to toggle the dropdown menu
-// function toggleDropdown() {
-//     var dropdownMenu = document.getElementById("myDropdown");
-//     if (dropdownMenu.style.display === "none") {
-//       dropdownMenu.style.display = "block";
-//     } else {
-//       dropdownMenu.style.display = "none";
-//     }
-// }
-
-// function selectOption(optionText) {
-//     var dropdownButton = document.querySelector(".dropbtn");
-//     dropdownButton.textContent = optionText;
-
-//     var dropdownMenu = document.getElementById("myDropdown");
-//     dropdownMenu.style.display = "none"; // Collapse the dropdown menu after selection  
-// }
 
 
 //  This is just for testing,  so we can see the values are 

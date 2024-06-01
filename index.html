@@ -3,20 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Basic HTML Form</title>
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <img src="images/wsuLogo.png" alt="Description of the image"/>
+    <img src="images/wsuLogo.png" alt="Description of the image" class="logo"/>
     <br />
-    <!-- <form onsubmit="return demo_to_session()"> -->
-    <form id="demoForm">
-      <label for="dAge">Age:</label>
-      <input type="number" id="dAge" name="dAge" required />
-      <br /><br />
-      <label for="dSex">Sex:</label>
-      <input type="text" id="dSex" name="dSex" required />
-      <br /><br />
-      <input type="submit"  value="Submit!"/>
-    </form>
+    <div class="content">
+      <form id="demoForm">
+        <label for="dAge">Age:</label>
+        <input type="number" id="dAge" name="dAge" required />
+        <br /><br />
+        <label for="dSex">Sex:</label>
+        <input type="text" id="dSex" name="dSex" required />
+        <br /><br />
+        <input type="submit"  value="Submit!"/>
+      </form>
+    </div>
     <script type="text/javascript">
         document.getElementById('demoForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form from submitting the traditional way
