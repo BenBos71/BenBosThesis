@@ -19,23 +19,25 @@
     <script src="js/main.js" defer></script>
   </head>
   <body>
-    <img src="images/wsuLogo.png" alt="Weber State University Logo"/>
+    <img src="../images/wsuLogo.png" alt="Weber State University Logo" class="logo"/>
     <br />
-    <img id="image_display" src="" alt="" class="ind_pic"/>
-    <br />
-    <p id="sentence"></p>
-    <br />
-    <form id="demoForm" >
-        <div class="dropdown">
-            <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Select an option:</button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#" onclick="selectOption('Happy')">Happy</a>
-                <a href="#" onclick="selectOption('Sad')">Sad</a>
+    <div class="content">
+        <img id="image_display" src="" alt="" class="ind_pic"/>
+        <br />
+        <p id="sentence"></p>
+        <br />
+        <form id="demoForm" >
+            <div class="dropdown">
+                <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Select an option:</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#" onclick="selectOption('Happy')">Happy</a>
+                    <a href="#" onclick="selectOption('Sad')">Sad</a>
+                </div>
             </div>
-        </div>
-        <input type="hidden" id="selectedOption" name="selectedOption" value="">
-        <input type="submit"  value="Next"/>
-    </form>
+            <input type="hidden" id="selectedOption" name="selectedOption" value="">
+            <input type="submit"  value="Next"/>
+        </form>
+    </div>
     <br />
     <script type="text/javascript">
         document.getElementById('demoForm').addEventListener('submit', function(event) {
@@ -58,7 +60,7 @@
             dropdownButton.textContent = optionText;
 
             var dropdownMenu = document.getElementById("myDropdown");
-            dropdownMenu.style.display = "none"; // Collapse the dropdown menu after selection  
+            dropdownMenu.style.display = "none"; 
             
             document.getElementById("selectedOption").value = optionText;
         }
@@ -70,7 +72,7 @@
                 event.preventDefault();
             }
             else {
-                next(); // Call next if validation is successful
+                next();
             }
         }
 
@@ -86,9 +88,10 @@
             }
         }
 
-        function next()
-        {
-            // emotions.push(document.querySelector(".dropbtn").textContent);
+        function next() {
+            let emotions = JSON.parse(sessionStorage.getItem("emotions"));
+            emotions.push(document.getElementById("selectedOption").value);
+            sessionStorage.setItem("emotions", JSON.stringify(emotions));
             window.location.assign('survey_30.html');
         }
     </script>
