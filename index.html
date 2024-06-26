@@ -1,45 +1,65 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Basic HTML Form</title>
+    <title>CinSandE</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY"></script>
+    <script>
+      function executeRecaptcha() {
+          grecaptcha.ready(function() {
+              grecaptcha.execute('6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY', {action: 'homepage'}).then(function(token) {
+                  var recaptchaResponse = document.createElement('input');
+                  recaptchaResponse.setAttribute('type', 'hidden');
+                  recaptchaResponse.setAttribute('name', 'g-recaptcha-response');
+                  recaptchaResponse.setAttribute('value', token);
+                  document.getElementById('myForm').appendChild(recaptchaResponse);
+              });
+          });
+      }
+
+      window.onload = executeRecaptcha;
+    </script>
   </head>
   <body>
-    <img src="images/wsuLogo.png" alt="Description of the image" class="logo"/>
-    <br />
-    <div class="content">
-      <form id="demoForm">
-        <label for="dAge">Age:</label>
-        <input type="number" id="dAge" name="dAge" required />
-        <br /><br />
-        <label for="dSex">Sex:</label>
-        <input type="text" id="dSex" name="dSex" required />
-        <br /><br />
-        <input type="submit"  value="Submit!"/>
-      </form>
-    </div>
-    <script type="text/javascript">
-        document.getElementById('demoForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting the traditional way
-            demo_to_session();
-         });
+    <form id="myForm" action="/submit" method="POST">
+      Your form fields here
+      <button type="submit">Submit</button>
+    <!÷-- </form> -->
+  <!-- </body> -->
+<!-- </html> -->
 
-        function demo_to_session() {
-            var sAge = document.getElementById("dAge").value;
-            var sSex = document.getElementById("dSex").value;
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>CinSandE</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY"></script>
+  <script>
+    function executeRecaptcha(event) {
+      event.preventDefault(); // Prevent form from submitting
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY', {action: 'submit'}).then(function(token) {
+          var recaptchaResponse = document.createElement('input');
+          recaptchaResponse.setAttribute('type', 'hidden');
+          recaptchaResponse.setAttribute('name', 'g-recaptcha-response');
+          recaptchaResponse.setAttribute('value', token);
+          document.getElementById('myForm').appendChild(recaptchaResponse);
+          document.getElementById('myForm').submit(); // Submit the form
+        });
+      });
+    }
 
-            console.log("Age:", sAge); // Debugging
-            console.log("Sex:", sSex); // Debugging
-
-            sessionStorage.setItem("age", sAge);
-            sessionStorage.setItem("sex", sSex);
-            
-            // Navigate to the new page
-            window.location.assign('survey/survey_1.html');
-
-            // No need to return false as default action is already prevented
-        }
-    </script>
-  </body>
+    window.onload = function() {
+      document.getElementById('myForm').addEventListener('submit', executeRecaptcha);
+    }
+  </script>
+</head>
+<body>
+  <form id="myForm" action="/submit" method="POST">
+    <!-- Your form fields here -->
+    <button type="submit">Submit</button>
+  </form>
+</body>
 </html>
