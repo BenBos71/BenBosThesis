@@ -76,11 +76,13 @@
   <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
-  <div>
+  <div class="form-container">
     <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
-      <div class="g-recaptcha" 
-           data-sitekey="6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY"
-           data-callback='onSubmit'></div>
+      <div class="recaptcha-container">
+        <div class="g-recaptcha" 
+             data-sitekey="6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY"
+             data-callback='onSubmit'></div>
+      </div>
       <br/>
       <button type="submit">Submit</button>
     </form>
