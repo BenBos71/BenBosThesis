@@ -1,8 +1,6 @@
 var sAge;
 var sSex;
-var sentence_index = 0;
 var image_num = 2;
-// var emotions = []
 
 // Array of sentences
 var sentences = [

@@ -35,31 +35,25 @@
   <meta charset="UTF-8" />
   <title>CinSandE</title>
   <link rel="stylesheet" href="css/main.css">
-  <script src="https://www.google.com/recaptcha/api.js?render=6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY"></script>
-  <script>
-    function executeRecaptcha(event) {
-      event.preventDefault(); // Prevent form from submitting
-      grecaptcha.ready(function() {
-        grecaptcha.execute('6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY', {action: 'submit'}).then(function(token) {
-          var recaptchaResponse = document.createElement('input');
-          recaptchaResponse.setAttribute('type', 'hidden');
-          recaptchaResponse.setAttribute('name', 'g-recaptcha-response');
-          recaptchaResponse.setAttribute('value', token);
-          document.getElementById('myForm').appendChild(recaptchaResponse);
-          document.getElementById('myForm').submit(); // Submit the form
-        });
-      });
-    }
-
-    window.onload = function() {
-      document.getElementById('myForm').addEventListener('submit', executeRecaptcha);
-    }
-  </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-  <form id="myForm" action="/submit" method="POST">
-    <!-- Your form fields here -->
-    <button type="submit">Submit</button>
-  </form>
+  <div>
+    <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
+      <div class="g-recaptcha" data-sitekey="6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY"></div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script type="text/javascript">
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from submitting the traditional way
+      reCap_to_index();
+    });
+
+    function reCap_to_index() {
+      // Navigate to the new page
+      window.location.assign('index2.html');
+    }
+  </script>
 </body>
 </html>
