@@ -221,6 +221,7 @@
             } else {
               alert('CAPTCHA verification failed.');
               grecaptcha.reset(recaptchaWidgetId);  // Reset the reCAPTCHA widget
+              window.location.assign('index2.html');
             }
           })
           .catch(error => {
