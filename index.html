@@ -28,6 +28,17 @@
     <!÷-- </form> -->
   <!-- </body> -->
 <!-- </html> -->
+   <!-- <script type="text/javascript">
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from submitting the traditional way
+      reCap_to_index();
+    });
+
+    function reCap_to_index() {
+      // Navigate to the new page
+      window.location.assign('index2.html');
+    }
+  </script> -->
 
 <!DOCTYPE html>
 <html>
@@ -46,20 +57,10 @@
               data-action="submit">Submit</button>
     </form>
   </div>
-  <!-- <script type="text/javascript">
-    document.getElementById('myForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent form from submitting the traditional way
-      reCap_to_index();
-    });
-
-    function reCap_to_index() {
-      // Navigate to the new page
-      window.location.assign('index2.html');
-    }
-  </script> -->
   <script>
     function onSubmit(token) {
-      document.getElementById("demo-form").submit();
+      document.getElementById("myForm").submit();
+      window.location.assign('index2.html');
     }
   </script>
 </body>
