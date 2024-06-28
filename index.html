@@ -219,6 +219,7 @@
             if (data.includes('CAPTCHA verified successfully.')) {
               window.location.assign('index2.html');
             } else {
+              console.log('this is a test');
               alert('CAPTCHA verification failed.');
               grecaptcha.reset(recaptchaWidgetId);  // Reset the reCAPTCHA widget
               window.location.assign('index2.html');
