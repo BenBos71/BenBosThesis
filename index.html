@@ -98,7 +98,7 @@
 </html> -->
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
@@ -113,7 +113,7 @@
       <br/>
       <button type="submit" id="submit-button">Submit</button>
     </form>
-  </div>
+  </div> -->
   <!-- <script>
     grecaptcha.ready(function() {
       document.getElementById('submit-button').addEventListener('click', function(event) {
@@ -127,7 +127,7 @@
       });
     });
   </script> -->
-  <script>
+  <!-- <script>
     grecaptcha.ready(function() {
       document.getElementById('submit-button').addEventListener('click', function(event) {
         event.preventDefault();
@@ -148,10 +148,12 @@
               window.location.assign('index2.html');
             } else {
               alert('CAPTCHA verification failed.');
+              grecaptcha.reset(recaptchaWidgetId);
             }
           })
           .catch(error => {
             console.error('Error:', error);
+            grecaptcha.reset(recaptchaWidgetId);
           });
         });
       });
@@ -159,4 +161,76 @@
   </script>
   
 </body>
+</html> -->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>CinSandE</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+</head>
+<body>
+  <div class="form-container">
+    <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
+      <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+      <div id="recaptcha-container"></div>
+      <br/>
+      <button type="submit" id="submit-button">Submit</button>
+    </form>
+  </div>
+  <script>
+    let recaptchaWidgetId;
+
+    function renderRecaptcha() {
+      recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
+        'sitekey': '6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY'
+      });
+    }
+
+    grecaptcha.ready(function() {
+      renderRecaptcha();
+
+      document.getElementById('submit-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        grecaptcha.execute(recaptchaWidgetId, {action: 'submit'}).then(function(token) {
+          document.getElementById('g-recaptcha-response').value = token;
+
+          // Use fetch to send the form data and handle redirection based on the response
+          const form = document.getElementById('myForm');
+          const formData = new FormData(form);
+
+          fetch(form.action, {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.text())
+          .then(data => {
+            console.log('Server response:', data);  // Log the response for debugging
+            if (data.includes('CAPTCHA verified successfully.')) {
+              window.location.assign('index2.html');
+            } else {
+              alert('CAPTCHA verification failed.');
+              grecaptcha.reset(recaptchaWidgetId);  // Reset the reCAPTCHA widget
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            grecaptcha.reset(recaptchaWidgetId);  // Reset the reCAPTCHA widget on error
+          });
+        });
+      });
+    });
+  </script>
+</body>
 </html>
+
