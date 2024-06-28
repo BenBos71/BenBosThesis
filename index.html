@@ -226,6 +226,8 @@
             }
           })
           .catch(error => {
+            console.log('this is a test');
+              alert('CAPTCHA verification failed.');
             console.error('Error:', error);
             grecaptcha.reset(recaptchaWidgetId);  // Reset the reCAPTCHA widget on error
           });
