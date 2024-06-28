@@ -40,7 +40,7 @@
     }
   </script> -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
@@ -60,6 +60,35 @@
   <script>
     function onSubmit(token) {
       document.getElementById("myForm").submit();
+      window.location.assign('index2.html');
+    }
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>CinSandE</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+  <div>
+    <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
+      <div class="g-recaptcha" 
+           data-sitekey="6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY"
+           data-callback='onSubmit'></div>
+      <br/>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("myForm").submit();
+      // Optionally, you can handle the redirection here if needed
       window.location.assign('index2.html');
     }
   </script>
