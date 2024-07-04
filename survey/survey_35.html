@@ -26,7 +26,7 @@
         <br />
         <p id="sentence"></p>
         <br />
-        <form id="demoForm" >
+        <form id="demoForm">
             <div class="dropdown">
                 <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Select an option:</button>
                 <div id="myDropdown" class="dropdown-content">
@@ -91,8 +91,38 @@
         function next() {
             let emotions = JSON.parse(sessionStorage.getItem("emotions"));
             emotions.push(document.getElementById("selectedOption").value);
-            sessionStorage.setItem("emotions", JSON.stringify(emotions));
+            // sessionStorage.setItem("emotions", JSON.stringify(emotions));
             // TODO: Send results to database
+            // fetch('/submit-form', {
+            //     method: 'POST',
+            //     headers: {
+            //     'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ arrayOfStrings: arrayOfStrings }),
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     console.log('Server response:', data);
+            // })
+            // .catch(error => {
+            //     console.error('Error:', error);
+            // });
+
+            fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ arrayOfStrings: emotions }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Server response:', data);
+                // Optionally, redirect or perform additional actions based on server response
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
     </script>
   </body>
