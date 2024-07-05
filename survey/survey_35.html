@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -15,8 +15,6 @@
             dropdownMenu.style.display = "none";
         });
     </script>
-    <!-- Include files -->
-    <!-- <script src="js/main.js" defer></script> -->
   </head>
   <body>
         <img src="../images/wsuLogo.png" alt="Weber State University Logo" class="logo"/>
@@ -91,22 +89,6 @@
         function next() {
             let emotions = JSON.parse(sessionStorage.getItem("emotions"));
             emotions.push(document.getElementById("selectedOption").value);
-            // sessionStorage.setItem("emotions", JSON.stringify(emotions));
-            // TODO: Send results to database
-            // fetch('/submit-form', {
-            //     method: 'POST',
-            //     headers: {
-            //     'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ arrayOfStrings: arrayOfStrings }),
-            // })
-            // .then(response => response.json())
-            // .then(data => {
-            //     console.log('Server response:', data);
-            // })
-            // .catch(error => {
-            //     console.error('Error:', error);
-            // });
 
             fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/submit-form', {
                 method: 'POST',
@@ -126,4 +108,123 @@
         }
     </script>
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>CinSandE</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+        window.addEventListener('load', function() {
+            // Set the source of the image element to display the random image
+            document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/35.jpg";
+            document.getElementById("sentence").textContent = "By the tranquil lake, beneath the setting sun.";
+
+            // Get dropdown var
+            var dropdownMenu = document.getElementById("myDropdown");
+            dropdownMenu.style.display = "none";
+        });
+    </script>
+    <!-- Include files -->
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <img src="../images/wsuLogo.png" alt="Weber State University Logo" class="logo"/>
+    <br />
+    <div class="content">
+        <img id="image_display" src="" alt="" class="ind_pic"/>
+        <br />
+        <p id="sentence"></p>
+        <br />
+        <form id="demoForm">
+            <div class="dropdown">
+                <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Select an option:</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#" onclick="selectOption('Happy')">Happy</a>
+                    <a href="#" onclick="selectOption('Sad')">Sad</a>
+                </div>
+            </div>
+            <input type="hidden" id="selectedOption" name="selectedOption" value="">
+            <input type="submit"  value="Submit"/>
+        </form>
+    </div>
+    <br />
+    <script type="text/javascript">
+        document.getElementById('demoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+            validateForm(event); // Call the validation function
+        });
+
+        function toggleDropdown() {
+            var dropdownMenu = document.getElementById("myDropdown");
+            if (dropdownMenu.style.display === "none") {
+                dropdownMenu.style.display = "block";
+            }
+            else {
+                dropdownMenu.style.display = "none";
+            }
+        }
+
+        function selectOption(optionText) {
+            var dropdownButton = document.getElementById("dropbtn");
+            dropdownButton.textContent = optionText;
+
+            var dropdownMenu = document.getElementById("myDropdown");
+            dropdownMenu.style.display = "none"; 
+            
+            document.getElementById("selectedOption").value = optionText;
+        }
+
+        function validateForm(event) {
+            var selectedOption = document.getElementById("selectedOption").value;
+            if (!selectedOption) {
+                alert("Please select an option from the dropdown.");
+                event.preventDefault();
+            }
+            else {
+                next();
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function next() {
+            let emotions = JSON.parse(sessionStorage.getItem("emotions"));
+            emotions.push(document.getElementById("selectedOption").value);
+            
+            fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ surveyResults: emotions }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Server response:', data);
+                // Optionally, redirect or perform additional actions based on server response
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+        }
+    </script>
+</body>
 </html>
