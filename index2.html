@@ -33,9 +33,14 @@
             console.log("Age:", sAge); // Debugging
             console.log("Sex:", sSex); // Debugging
 
-            sessionStorage.setItem("age", sAge);
-            sessionStorage.setItem("sex", sSex);
+            // sessionStorage.setItem("age", sAge);
+            // sessionStorage.setItem("sex", sSex);
             
+            let emotions = [];
+            emotions.push(sAge);
+            emotions.push(sSex);
+            sessionStorage.setItem('emotions', JSON.stringify(emotions));
+
             // Navigate to the new page
             window.location.assign('survey/survey_1.html');
 
