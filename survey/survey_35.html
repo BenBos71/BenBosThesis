@@ -127,8 +127,6 @@
             dropdownMenu.style.display = "none";
         });
     </script>
-    <!-- Include files -->
-    <script src="js/main.js" defer></script>
 </head>
 <body>
     <img src="../images/wsuLogo.png" alt="Weber State University Logo" class="logo"/>
@@ -204,6 +202,8 @@
             let emotions = JSON.parse(sessionStorage.getItem("emotions"));
             emotions.push(document.getElementById("selectedOption").value);
             
+            console.log('Emotions array:', emotions); // Log the emotions array
+
             fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/submit-form', {
                 method: 'POST',
                 headers: {
