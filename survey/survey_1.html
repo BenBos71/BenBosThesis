@@ -105,7 +105,8 @@
 
         function next()
         {
-            let emotions = [];
+            let emotions = JSON.parse(sessionStorage.getItem("emotions"));
+            emotions.push(image_dir);
             emotions.push(document.getElementById("selectedOption").value);
             sessionStorage.setItem('emotions', JSON.stringify(emotions));
             window.location.assign('survey_2.html');
