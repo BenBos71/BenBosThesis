@@ -67,7 +67,7 @@
  -->
 
 
- <!DOCTYPE html>
+ <!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
@@ -89,9 +89,13 @@
 
     function renderRecaptcha() {
       recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
-        'sitekey': '6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY'
+        'sitekey': '6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY',
+        'callback': onReCaptchaSuccess,
+        'size': 'invisible'
       });
     }
+
+
 
     grecaptcha.ready(function() {
       renderRecaptcha();
@@ -128,6 +132,56 @@
           });
         });
       });
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>CinSandE</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+</head>
+<body>
+  <div class="form-container">
+    <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
+      <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+      <div id="recaptcha-container"></div>
+      <br/>
+      <button type="submit" id="submit-button">Submit</button>
+    </form>
+  </div>
+  <script>
+    let recaptchaWidgetId;
+
+    function renderRecaptcha() {
+      recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
+        'sitekey': '6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY',
+        'callback': onReCaptchaSuccess,
+        'size': 'invisible'
+      });
+    }
+
+    function onReCaptchaSuccess(token) {
+      document.getElementById('g-recaptcha-response').value = token;
+      document.getElementById('myForm').submit();
+    }
+
+    window.onload = function() {
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.ready(renderRecaptcha);
+      } else {
+        console.error('reCAPTCHA script not loaded');
+      }
+    };
+
+    document.getElementById('submit-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      grecaptcha.execute(recaptchaWidgetId);
     });
   </script>
 </body>
