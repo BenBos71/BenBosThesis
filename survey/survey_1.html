@@ -107,7 +107,7 @@
         function next()
         {
             let emotions = JSON.parse(sessionStorage.getItem("emotions"));
-            var image_Dir = sessionStorage.getItem("image_dir");
+            var image_dir = sessionStorage.getItem("image_dir");
             emotions.push(image_dir);
             emotions.push(document.getElementById("selectedOption").value);
             sessionStorage.setItem('emotions', JSON.stringify(emotions));
