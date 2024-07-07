@@ -7,9 +7,14 @@
     <script>
         window.addEventListener('load', function() {
             // Set the source of the image element to display the random image
-            if (sessionStorage.getItem("image_dir") !== "none")
-            {
-                document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/25.jpg";
+// Retrieve the image_dir value from sessionStorage
+var imageDir = sessionStorage.getItem("image_dir");
+
+// Check if the value is not "none"
+if (imageDir !== "none") {
+    // Update the src attribute of the image element
+    document.getElementById("image_display").src = "../images/survey_images/" + imageDir + 
+"/25.jpg";
             }
             document.getElementById("sentence").textContent = "The child ran through the park.";
 
