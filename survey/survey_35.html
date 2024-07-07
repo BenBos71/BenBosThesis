@@ -7,7 +7,10 @@
     <script>
         window.addEventListener('load', function() {
             // Set the source of the image element to display the random image
-            document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/35.jpg";
+            if (sessionStorage.getItem("image_dir") !== "none")
+            {
+                document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/2.jpg";
+            }"/35.jpg";
             document.getElementById("sentence").textContent = "By the tranquil lake, beneath the setting sun.";
 
             // Get dropdown var
@@ -119,7 +122,10 @@
     <script>
         window.addEventListener('load', function() {
             // Set the source of the image element to display the random image
-            document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/35.jpg";
+            if (sessionStorage.getItem("image_dir") !== "none")
+            {
+                document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/35.jpg";
+            }
             document.getElementById("sentence").textContent = "By the tranquil lake, beneath the setting sun.";
 
             // Get dropdown var
