@@ -7,7 +7,10 @@
     <script>
         window.addEventListener('load', function() {
             // Set the source of the image element to display the random image
-            document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/16.jpg";
+            if (sessionStorage.getItem("image_dir") !== "none")
+            {
+                document.getElementById("image_display").src = "../images/survey_images/" + sessionStorage.getItem("image_dir") + "/16.jpg";
+            }
             document.getElementById("sentence").textContent = "A person walked on the sidewalk.";
 
             // Get dropdown var
@@ -15,8 +18,6 @@
             dropdownMenu.style.display = "none";
         });
     </script>
-    <!-- Include files -->
-    <!-- <script src="js/main.js" defer></script> -->
   </head>
   <body>
     <img src="../images/wsuLogo.png" alt="Weber State University Logo" class="logo"/>
