@@ -243,6 +243,14 @@
   <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer onload="onLoadRecaptcha()"></script>
 </head>
 <body>
+  <div class="centered-paragraph">
+    Thank you for choosing to participate in this survey.  It is simple
+    and should only take 5-10 minutes of your time.  First you will specify
+    your age and sex. Then you will read through 35 sentences (one at a time)
+    and select if the sentence makes you feel happy or sad.  Thank you again,
+    and good luck!
+    <span class="disclaimer">Disclaimer: You must be 18 years or older to participate in this survey.</span>
+  </div>
   <div class="form-container">
     <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
       <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">

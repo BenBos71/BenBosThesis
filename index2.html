@@ -13,10 +13,17 @@
       <form id="demoForm">
         <label for="dAge">Age:</label>
         <input type="number" id="dAge" name="dAge" required />
-        <br /><br />
+        <!-- <br /><br />
         <label for="dSex">Sex:</label>
         <input type="text" id="dSex" name="dSex" required />
-        <br /><br />
+        <br /><br /> -->
+        <label for="dSex">Sex:</label>
+        <select id="dSex" name="dSex" required>
+            <option value="">--Please choose an option--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
         <input type="submit"  value="Submit!"/>
       </form>
     </div>
@@ -29,22 +36,21 @@
         function demo_to_session() {
             var sAge = document.getElementById("dAge").value;
             var sSex = document.getElementById("dSex").value;
-
-            console.log("Age:", sAge); // Debugging
-            console.log("Sex:", sSex); // Debugging
-
-            // sessionStorage.setItem("age", sAge);
-            // sessionStorage.setItem("sex", sSex);
             
-            let emotions = [];
-            emotions.push(sAge);
-            emotions.push(sSex);
-            sessionStorage.setItem('emotions', JSON.stringify(emotions));
+            if (sAge >= 18)
+            {
+              let emotions = [];
+              emotions.push(sAge);
+              emotions.push(sSex);
+              sessionStorage.setItem('emotions', JSON.stringify(emotions));
 
-            // Navigate to the new page
-            window.location.assign('survey/survey_1.html');
-
-            // No need to return false as default action is already prevented
+              // Navigate to the new page
+              window.location.assign('survey/survey_1.html');
+            }
+            else
+            {
+              alert("You must be 18 years or older to participate in this survey!");
+            }
         }
     </script>
   </body>
