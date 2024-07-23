@@ -7,14 +7,14 @@
     <script>
         window.addEventListener('load', function() {
             // Set the source of the image element to display the random image
-// Retrieve the image_dir value from sessionStorage
-var imageDir = sessionStorage.getItem("image_dir");
+            // Retrieve the image_dir value from sessionStorage
+            var imageDir = sessionStorage.getItem("image_dir");
 
-// Check if the value is not "none"
-if (imageDir !== "none") {
-    // Update the src attribute of the image element
-    document.getElementById("image_display").src = "../images/survey_images/" + imageDir + 
-"/9.jpg";
+            // Check if the value is not "none"
+            if (imageDir !== "none") {
+                // Update the src attribute of the image element
+                document.getElementById("image_display").src = "../images/survey_images/" + imageDir + 
+            "/9.jpg";
             }
             document.getElementById("sentence").textContent = "The moon cast a light over the landscape.";
 
