@@ -76,7 +76,14 @@
                 event.preventDefault();
             }
             else {
-                next();
+                if (!sessionStorage.getItem('formSubmit'))
+                {
+                    next();
+                }
+                else
+                {
+                    alert("Thank you for completing the survey!  You may now close this window.");
+                }
             }
         }
 
