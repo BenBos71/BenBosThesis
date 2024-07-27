@@ -39,10 +39,13 @@
             
             if (sAge >= 18)
             {
-              let emotions = [];
-              emotions.push(sAge);
-              emotions.push(sSex);
-              sessionStorage.setItem('emotions', JSON.stringify(emotions));
+              // let emotions = [];
+              // emotions.push(sAge);
+              // emotions.push(sSex);
+              // sessionStorage.setItem('emotions', JSON.stringify(emotions));
+
+              sessionStorage.setItem('age', sAge);
+              sessionStorage.setItem('sex', sSex);
 
               // Navigate to the new page
               window.location.assign('survey/survey_1.html');
