@@ -78,6 +78,7 @@
             else {
                 if (sessionStorage.getItem('formSubmit') === 'false')
                 {
+                    sessionStorage.setItem('formSubmit', 'true');
                     next();
                 }
                 else
@@ -101,8 +102,8 @@
 
         function next() {
             let emotions = [];
-            emotions.push(sessionStorage.getItem('sAge'));
-            emotions.push(sessionStorage.getItem('sSex'));
+            emotions.push(sessionStorage.getItem('age'));
+            emotions.push(sessionStorage.getItem('sex'));
             emotions.push(sessionStorage.getItem('image_dir'));
             emotions.push(sessionStorage.getItem('emote1'));
             emotions.push(sessionStorage.getItem('emote2'));
