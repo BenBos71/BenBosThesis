@@ -76,7 +76,7 @@
                 event.preventDefault();
             }
             else {
-                if (!sessionStorage.getItem('formSubmit'))
+                if (sessionStorage.getItem('formSubmit') === 'false')
                 {
                     next();
                 }
