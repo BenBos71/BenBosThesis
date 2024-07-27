@@ -45,6 +45,8 @@
     <br />
     <script type="text/javascript">
         document.getElementById('demoForm').addEventListener('submit', function(event) {
+            const button = document.getElementById("submitButton");
+            button.disabled = true;
             event.preventDefault(); // Prevent form from submitting the traditional way
             validateForm(event); // Call the validation function
         });
@@ -72,6 +74,8 @@
         function validateForm(event) {
             var selectedOption = document.getElementById("selectedOption").value;
             if (!selectedOption) {
+                const button = document.getElementById("submitButton");
+                button.disabled = false;
                 alert("Please select an option from the dropdown.");
                 event.preventDefault();
             }
@@ -93,7 +97,44 @@
         }
 
         function next() {
-            let emotions = JSON.parse(sessionStorage.getItem("emotions"));
+            let emotions = [];
+            emotions.push(sessionStorage.getItem('sAge'));
+            emotions.push(sessionStorage.getItem('sSex'));
+            emotions.push(sessionStorage.getItem('image_dir'));
+            emotions.push(sessionStorage.getItem('emote1'));
+            emotions.push(sessionStorage.getItem('emote2'));
+            emotions.push(sessionStorage.getItem('emote3'));
+            emotions.push(sessionStorage.getItem('emote4'));
+            emotions.push(sessionStorage.getItem('emote5'));
+            emotions.push(sessionStorage.getItem('emote6'));
+            emotions.push(sessionStorage.getItem('emote7'));
+            emotions.push(sessionStorage.getItem('emote8'));
+            emotions.push(sessionStorage.getItem('emote9'));
+            emotions.push(sessionStorage.getItem('emote10'));
+            emotions.push(sessionStorage.getItem('emote11'));
+            emotions.push(sessionStorage.getItem('emote12'));
+            emotions.push(sessionStorage.getItem('emote13'));
+            emotions.push(sessionStorage.getItem('emote14'));
+            emotions.push(sessionStorage.getItem('emote15'));
+            emotions.push(sessionStorage.getItem('emote16'));
+            emotions.push(sessionStorage.getItem('emote17'));
+            emotions.push(sessionStorage.getItem('emote18'));
+            emotions.push(sessionStorage.getItem('emote19'));
+            emotions.push(sessionStorage.getItem('emote20'));
+            emotions.push(sessionStorage.getItem('emote21'));
+            emotions.push(sessionStorage.getItem('emote22'));
+            emotions.push(sessionStorage.getItem('emote23'));
+            emotions.push(sessionStorage.getItem('emote24'));
+            emotions.push(sessionStorage.getItem('emote25'));
+            emotions.push(sessionStorage.getItem('emote26'));
+            emotions.push(sessionStorage.getItem('emote27'));
+            emotions.push(sessionStorage.getItem('emote28'));
+            emotions.push(sessionStorage.getItem('emote29'));
+            emotions.push(sessionStorage.getItem('emote30'));
+            emotions.push(sessionStorage.getItem('emote31'));
+            emotions.push(sessionStorage.getItem('emote32'));
+            emotions.push(sessionStorage.getItem('emote33'));
+            emotions.push(sessionStorage.getItem('emote34'));
             emotions.push(document.getElementById("selectedOption").value);
             
             console.log('Emotions array:', emotions); // Log the emotions array

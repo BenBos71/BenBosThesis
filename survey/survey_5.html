@@ -47,6 +47,8 @@
     <br />
     <script type="text/javascript">
         document.getElementById('demoForm').addEventListener('submit', function(event) {
+            const button = document.getElementById("submitButton");
+            button.disabled = true;
             event.preventDefault(); // Prevent form from submitting the traditional way
             validateForm(event); // Call the validation function
         });
@@ -74,6 +76,8 @@
         function validateForm(event) {
             var selectedOption = document.getElementById("selectedOption").value;
             if (!selectedOption) {
+                const button = document.getElementById("submitButton");
+                button.disabled = false;
                 alert("Please select an option from the dropdown.");
                 event.preventDefault();
             }
@@ -95,9 +99,7 @@
         }
 
         function next() {
-            let emotions = JSON.parse(sessionStorage.getItem("emotions"));
-            emotions.push(document.getElementById("selectedOption").value);
-            sessionStorage.setItem("emotions", JSON.stringify(emotions));
+            sessionStorage.setItem('emote5', document.getElementById("selectedOption").value)
             window.location.assign('survey_6.html');
         }
     </script>
