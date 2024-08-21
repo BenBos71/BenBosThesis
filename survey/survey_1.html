@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>CinSandE</title>
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/main.js"></script>
     <script>
         window.addEventListener('load', function() {
             // Array of image filenames
@@ -35,7 +36,6 @@
     </script>
   </head>
   <body>
-    <img src="../images/wsuLogo.png" alt="Weber State University Logo" class="logo"/>
     <br />
     <div class="content">
         <img id="image_display" src="" alt="" class="ind_pic"/>
@@ -73,66 +73,6 @@
             event.preventDefault(); // Prevent form from submitting the traditional way
             validateForm(event); // Call the validation function
         });
-
-        function toggleDropdown() {
-            var dropdownMenu = document.getElementById("myDropdown");
-            if (dropdownMenu.style.display === "none") {
-                dropdownMenu.style.display = "block";
-            }
-            else {
-                dropdownMenu.style.display = "none";
-            }
-        }
-
-        function selectOption(optionText) {
-            var dropdownButton = document.getElementById("dropbtn");
-            dropdownButton.textContent = optionText;
-
-            var dropdownMenu = document.getElementById("myDropdown");
-            dropdownMenu.style.display = "none"; 
-            
-            document.getElementById("selectedOption").value = optionText;
-        }
-
-        function validateForm(event) {
-            var selectedOption = document.getElementById("selectedOption").value;
-            var radioOption = document.getElementsByName("radioOption");
-            var checked = false;
-            if (!selectedOption) {
-                alert("Please select an option from the dropdown.");
-                event.preventDefault();
-            }
-            else {
-                for (var i = 0; i < radioOption.length; i++) {
-                    if (radioOption[i].checked) {
-                        selectedValue = radioOption[i].value;
-                        checked = true;
-                        break;
-                    }
-                }
-                if (checked == false)
-                {
-                    alert("Please select a valence.");
-                    event.preventDefault();
-                }
-                else
-                {
-                    next(selectedValue);
-                }
-            }
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "block") {
-                        openDropdown.style.display = "none";
-                    }
-                }
-            }
-        }
 
         function next(valence)
         {
