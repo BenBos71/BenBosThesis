@@ -170,6 +170,30 @@ form input[type="submit"] {
     color: red;
 }
 
+.scrollable-box {
+    width: 300px;         /* Set the width of the box */
+    height: 150px;        /* Set the height of the box */
+    padding: 10px;        /* Optional: Add padding inside the box */
+    border: 1px solid #ccc; /* Optional: Add a border around the box */
+    overflow-y: scroll;   /* Enable vertical scrolling */
+    overflow-x: hidden;   /* Optional: Hide horizontal scrolling */
+    background-color: #f9f9f9; /* Optional: Set background color */
+}
+
+.consentButton {
+    font-size: 20px;       /* Increase the font size */
+    padding: 15px 30px;    /* Increase padding for a larger button */
+    background-color: #4CAF50; /* Optional: Change the background color */
+    color: white;          /* Optional: Change the text color */
+    border: none;          /* Optional: Remove the border */
+    border-radius: 5px;    /* Optional: Add rounded corners */
+    cursor: pointer;       /* Optional: Change the cursor to a pointer */
+}
+
+.consentButton:hover {
+    background-color: #45a049; /* Optional: Add a hover effect */
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 600px) {
     .logo {

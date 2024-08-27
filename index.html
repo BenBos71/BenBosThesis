@@ -1,262 +1,85 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>CinSandE</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
-</head>
-<body>
-  <div class="form-container">
-    <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
-      <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-      <div id="recaptcha-container"></div>
-      <br/>
-      <button type="submit" id="submit-button">Submit</button>
-    </form>
-  </div>
-  <script>
-    let recaptchaWidgetId;
-
-    function renderRecaptcha() {
-      recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
-        'sitekey': '6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY'
-      });
-    }
-
-    grecaptcha.ready(function() {
-      renderRecaptcha();
-
-      document.getElementById('submit-button').addEventListener('click', function(event) {
-        event.preventDefault();
-        grecaptcha.execute(recaptchaWidgetId, {action: 'submit'}).then(function(token) {
-          document.getElementById('g-recaptcha-response').value = token;
-
-          // Use fetch to send the form data and handle redirection based on the response
-          const form = document.getElementById('myForm');
-          const formData = new FormData(form);
-
-          fetch(form.action, {
-            method: 'POST',
-            body: formData
-          })
-          .then(response => response.text())
-          .then(data => {
-            console.log('Server response:', data);  // Log the response for debugging
-            if (data.includes('CAPTCHA verified successfully.')) {
-              window.location.assign('index2.html');
-            } else {
-              console.log('this is a test');
-              alert('CAPTCHA verification failed.');
-              grecaptcha.reset(recaptchaWidgetId);  // Reset the reCAPTCHA widget
-              window.location.assign('index2.html');
-            }
-          })
-          .catch(error => {
-            console.log('this is a test');
-            alert('CAPTCHA verification failed. Client Side.');
-            console.error('Error:', error);
-            grecaptcha.reset(recaptchaWidgetId);  // Reset the reCAPTCHA widget on error
-          });
-        });
-      });
-    });
-  </script>
-</body>
-</html>
- -->
-
-
- <!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>CinSandE</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
-</head>
-<body>
-  <div class="form-container">
-    <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
-      <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-      <div id="recaptcha-container"></div>
-      <br/>
-      <button type="submit" id="submit-button">Submit</button>
-    </form>
-  </div>
-  <script>
-    let recaptchaWidgetId;
-
-    function renderRecaptcha() {
-      recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
-        'sitekey': '6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY',
-        'callback': onReCaptchaSuccess,
-        'size': 'invisible'
-      });
-    }
-
-
-
-    grecaptcha.ready(function() {
-      renderRecaptcha();
-
-      document.getElementById('submit-button').addEventListener('click', function(event) {
-        event.preventDefault();
-        grecaptcha.execute(recaptchaWidgetId, {action: 'submit'}).then(function(token) {
-          document.getElementById('g-recaptcha-response').value = token;
-
-          // Check if the token is correctly set
-          console.log('reCAPTCHA token:', token); // Log token for debugging
-
-          const form = document.getElementById('myForm');
-          const formData = new FormData(form);
-
-          fetch(form.action, {
-            method: 'POST',
-            body: formData
-          })
-          .then(response => response.text())
-          .then(data => {
-            console.log('Server response:', data);
-            if (data.includes('CAPTCHA verified successfully.')) {
-              window.location.assign('index2.html');
-            } else {
-              alert('CAPTCHA verification failed.');
-              grecaptcha.reset(recaptchaWidgetId);
-            }
-          })
-          .catch(error => {
-            alert('CAPTCHA verification failed.');
-            console.error('Error:', error);
-            grecaptcha.reset(recaptchaWidgetId);
-          });
-        });
-      });
-    });
-  </script>
-</body>
-</html> -->
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>CinSandE</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
-</head>
-<body>
-  <div class="form-container">
-    <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
-      <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-      <div id="recaptcha-container"></div>
-      <br/>
-      <button type="submit" id="submit-button">Submit</button>
-    </form>
-  </div>
-  <script>
-    let recaptchaWidgetId;
-
-    function renderRecaptcha() {
-      recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
-        'sitekey': '6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY',
-        'callback': onReCaptchaSuccess,
-        'size': 'invisible'
-      });
-    }
-
-    function onReCaptchaSuccess(token) {
-      document.getElementById('g-recaptcha-response').value = token;
-      document.getElementById('myForm').submit();
-    }
-
-    window.onload = function() {
-      if (typeof grecaptcha !== 'undefined') {
-        grecaptcha.ready(renderRecaptcha);
-      } else {
-        console.error('reCAPTCHA script not loaded');
-      }
-    };
-
-    document.getElementById('submit-button').addEventListener('click', function(event) {
-      event.preventDefault();
-      grecaptcha.execute(recaptchaWidgetId);
-    });
-  </script>
-</body>
-</html> -->
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>CinSandE</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer onload="onLoadRecaptcha()"></script>
-</head>
-<body>
-  <div class="form-container">
-    <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
-      <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-      <div id="recaptcha-container"></div>
-      <br/>
-      <button type="submit" id="submit-button">Submit</button>
-    </form>
-  </div>
-  <script>
-    let recaptchaWidgetId;
-
-    function renderRecaptcha() {
-      recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
-        'sitekey': '6LfKYPspAAAAAIvluFDF1LNjiAIGp_ZnqPmnW3aY',
-        'callback': onReCaptchaSuccess,
-        'size': 'invisible'
-      });
-    }
-
-    function onReCaptchaSuccess(token) {
-      document.getElementById('g-recaptcha-response').value = token;
-      document.getElementById('myForm').submit();
-    }
-
-    function onLoadRecaptcha() {
-      grecaptcha.ready(renderRecaptcha);
-    }
-
-    document.getElementById('submit-button').addEventListener('click', function(event) {
-      event.preventDefault();
-      grecaptcha.execute(recaptchaWidgetId);
-    });
-  </script>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>CinSandE</title>
+  <title>Feelings Survey</title>
   <link rel="stylesheet" href="css/main.css">
   <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer onload="onLoadRecaptcha()"></script>
 </head>
 <body>
-  <div class="centered-paragraph">
-    Thank you for choosing to participate in this survey.  It is simple
-    and should only take 5-10 minutes of your time.  First you will specify
-    your age and sex. Then you will read through 35 sentences (one at a time)
-    and select if the sentence makes you feel happy or sad.  Thank you again,
-    and good luck!<br/>
-    <span class="disclaimer">Disclaimer: You must be 18 years or older to participate in this survey.</span>
-  </div>
+  <div class="scrollable-box">
+    <p><strong>IRB STUDY #IRB-AY23-24-360</strong></p>
+    <p><strong>WEBER STATE UNIVERSITY</strong><br>
+    <strong>INFORMED CONSENT</strong><br>
+    Sentiment and Emotion Analysis</p>
+
+    <p>You are invited to participate in a research study of Sentiment and Emotion Analysis. You were selected as a possible subject because you are 18 years or older. We ask that you read this form and ask any questions you may have before agreeing to be in the study.</p>
+
+    <p>The study is being conducted by Ben Bos, a student in the Masters of Computer Science program, and Dr. Robert Ball, who is the graduate director of the Masters of Computer Science program.</p>
+
+    <p><strong>STUDY PURPOSE</strong></p>
+
+    <p>The purpose of this study is to research how context can affect an individual’s analysis of a sentence.</p>
+
+    <p><strong>NUMBER OF PEOPLE TAKING PART IN THE STUDY:</strong></p>
+
+    <p>If you agree to participate, you will be one of around 100 subjects who will be participating in this research.</p>
+
+    <p><strong>PROCEDURES FOR THE STUDY:</strong></p>
+
+    <p>If you agree to be in the study, you will do the following things:</p>
+    <p>First you will fill out a demographics form with your age, your sex, your level of education, and (if applicable) your field of study. After that you will begin a survey where you will read a sentence and select from a dropdown menu if the sentence you read makes you feel enjoyment, sadness, anger, contempt, disgust, fear, or surprise. You will also select whether you felt the sentence was positive or negative. You will do this a total of 35 times.</p>
+
+    <p><strong>RISKS OF TAKING PART IN THE STUDY:</strong></p>
+
+    <p>For this type of research I’m conducting there are possible risks which include:<br>
+    The risk of feeling uncomfortable answering any particular question.</p>
+
+    <p><strong>BENEFITS OF TAKING PART IN THE STUDY:</strong></p>
+
+    <p>You will not receive payment for taking part in this study.</p>
+
+    <p><strong>ALTERNATIVES TO TAKING PART IN THE STUDY:</strong></p>
+
+    <p>If you choose not to take part in this study then you may find other studies that you can participate in at a later date.</p>
+
+    <p><strong>COSTS/ COMPENSATION FOR INJURY:</strong></p>
+
+    <p>In the event of physical injury resulting from your participation in this research, necessary medical treatment will be provided to you and billed as part of your medical expenses. Costs not covered by your health care insurer will be your responsibility. Also, it is your responsibility to determine the extent of your health care coverage. There is no program in place for other monetary compensation for such injuries. However, you are not giving up any legal rights or benefits to which you are otherwise entitled. If you are participating in research which is not conducted at a medical facility, you will be responsible for seeking medical care and for the expenses associated with any care received.</p>
+
+    <p><strong>CONFIDENTIALITY:</strong></p>
+
+    <p>Efforts will be made to keep your personal information confidential. We cannot guarantee absolute confidentiality. Your personal information may be disclosed if required by law. Your identity will be held in confidence in reports in which the study may be published and databases in which results may be stored.</p>
+
+    <p>Organizations that may inspect and/or copy your research records for quality assurance and data analysis include groups such as the study investigator and his/her research associates, the Weber State University Institutional Review Board or its designees, the study sponsor, Dr. Robert Ball, and (as allowed by law) state or federal agencies, specifically the Office for Human Research Protections (OHRP) and the Food and Drug Administration (FDA) [for FDA-regulated research and research involving positron-emission scanning], the National Cancer Institute (NCI) [for research funded or supported by NCI], the National Institutes of Health (NIH) [for research funded or supported by NIH], etc., who may need to access your medical and/or research records.</p>
+
+    <p><strong>CONTACTS FOR QUESTIONS OR PROBLEMS:</strong></p>
+
+    <p>For questions about the study, contact the researcher Ben Bos at johnbos@mail.weber.edu or the researcher’s mentor Dr. Robert Ball at robertball@weber.edu.</p>
+
+    <p>For questions about your rights as a research participant or to discuss problems, complaints or concerns about a research study, or to obtain information, or offer input, contact the Chair of the IRB Committee IRB@weber.edu.</p>
+
+    <p><strong>VOLUNTARY NATURE OF STUDY:</strong></p>
+
+    <p>Taking part in this study is voluntary. You may choose not to take part or may leave the study at any time. Leaving the study will not result in any penalty or loss of benefits to which you are entitled. Your decision whether or not to participate in this study will not affect your current or future relations with Weber State University.</p>
+
+    <p><strong>SUBJECT’S CONSENT:</strong></p>
+
+    <p>In consideration of all of the above, I give my consent to participate in this research study.</p>
+
+    <p>If requested, I will be given a copy of this informed consent document to keep for my records by contacting Ben Bos at johnbos@mail.weber.edu.</p>
+
+    <p>I agree to take part in this study.</p>
+
+    <!-- <p><strong>By clicking submit you agree to everything mentioned above.</strong></p> -->
+</div>
+<p><strong>By clicking submit you agree to everything mentioned above.</strong></p>
   <div class="form-container">
     <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
       <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
       <div id="recaptcha-container"></div>
       <br/>
-      <button type="submit" id="submit-button">Submit</button>
+      <button type="submit" id="submit-button" class="consentButton">Submit</button>
     </form>
   </div>
   <script>
