@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>CinSandE</title>
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/main.js"></script>
     <script>
         window.addEventListener('load', function() {
             var imageDir = sessionStorage.getItem("image_dir");
@@ -23,7 +24,6 @@
     </script>
 </head>
 <body>
-    <img src="../images/wsuLogo.png" alt="Weber State University Logo" class="logo"/>
     <br />
     <div class="content">
         <img id="image_display" src="" alt="" class="ind_pic"/>
@@ -49,90 +49,84 @@
             validateForm(event); // Call the validation function
         });
 
-        function toggleDropdown() {
-            var dropdownMenu = document.getElementById("myDropdown");
-            if (dropdownMenu.style.display === "none") {
-                dropdownMenu.style.display = "block";
-            }
-            else {
-                dropdownMenu.style.display = "none";
-            }
-        }
-
-        function selectOption(optionText) {
-            var dropdownButton = document.getElementById("dropbtn");
-            dropdownButton.textContent = optionText;
-
-            var dropdownMenu = document.getElementById("myDropdown");
-            dropdownMenu.style.display = "none"; 
-            
-            document.getElementById("selectedOption").value = optionText;
-        }
-
-        function validateForm(event) {
-            var selectedOption = document.getElementById("selectedOption").value;
-            if (!selectedOption) {
-                alert("Please select an option from the dropdown.");
-                event.preventDefault();
-            }
-            else {
-                next();
-            }
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "block") {
-                        openDropdown.style.display = "none";
-                    }
-                }
-            }
-        }
-
         function next() {
             if (sessionStorage.getItem('formSubmit') === 'false')
             {
                 let emotions = [];
                 emotions.push(sessionStorage.getItem('age'));
                 emotions.push(sessionStorage.getItem('sex'));
+                emotions.push(sessionStorage.getItem('ed_level'));
+                emotions.push(sessionStorage.getItem('ed_field'));
                 emotions.push(sessionStorage.getItem('image_dir'));
-                emotions.push(sessionStorage.getItem('emote1'));
-                emotions.push(sessionStorage.getItem('emote2'));
-                emotions.push(sessionStorage.getItem('emote3'));
-                emotions.push(sessionStorage.getItem('emote4'));
-                emotions.push(sessionStorage.getItem('emote5'));
-                emotions.push(sessionStorage.getItem('emote6'));
-                emotions.push(sessionStorage.getItem('emote7'));
-                emotions.push(sessionStorage.getItem('emote8'));
-                emotions.push(sessionStorage.getItem('emote9'));
-                emotions.push(sessionStorage.getItem('emote10'));
-                emotions.push(sessionStorage.getItem('emote11'));
-                emotions.push(sessionStorage.getItem('emote12'));
-                emotions.push(sessionStorage.getItem('emote13'));
-                emotions.push(sessionStorage.getItem('emote14'));
-                emotions.push(sessionStorage.getItem('emote15'));
-                emotions.push(sessionStorage.getItem('emote16'));
-                emotions.push(sessionStorage.getItem('emote17'));
-                emotions.push(sessionStorage.getItem('emote18'));
-                emotions.push(sessionStorage.getItem('emote19'));
-                emotions.push(sessionStorage.getItem('emote20'));
-                emotions.push(sessionStorage.getItem('emote21'));
-                emotions.push(sessionStorage.getItem('emote22'));
-                emotions.push(sessionStorage.getItem('emote23'));
-                emotions.push(sessionStorage.getItem('emote24'));
-                emotions.push(sessionStorage.getItem('emote25'));
-                emotions.push(sessionStorage.getItem('emote26'));
-                emotions.push(sessionStorage.getItem('emote27'));
-                emotions.push(sessionStorage.getItem('emote28'));
-                emotions.push(sessionStorage.getItem('emote29'));
-                emotions.push(sessionStorage.getItem('emote30'));
-                emotions.push(sessionStorage.getItem('emote31'));
-                emotions.push(sessionStorage.getItem('emote32'));
-                emotions.push(sessionStorage.getItem('emote33'));
-                emotions.push(sessionStorage.getItem('emote34'));
+                emotions.push(sessionStorage.getItem('emote1_e'));
+                emotions.push(sessionStorage.getItem('emote1_v'));
+                emotions.push(sessionStorage.getItem('emote2_e'));
+                emotions.push(sessionStorage.getItem('emote2_v'));
+                emotions.push(sessionStorage.getItem('emote3_e'));
+                emotions.push(sessionStorage.getItem('emote3_v'));
+                emotions.push(sessionStorage.getItem('emote4_e'));
+                emotions.push(sessionStorage.getItem('emote4_v'));
+                emotions.push(sessionStorage.getItem('emote5_e'));
+                emotions.push(sessionStorage.getItem('emote5_v'));
+                emotions.push(sessionStorage.getItem('emote6_e'));
+                emotions.push(sessionStorage.getItem('emote6_v'));
+                emotions.push(sessionStorage.getItem('emote7_e'));
+                emotions.push(sessionStorage.getItem('emote7_v'));
+                emotions.push(sessionStorage.getItem('emote8_e'));
+                emotions.push(sessionStorage.getItem('emote8_v'));
+                emotions.push(sessionStorage.getItem('emote9_e'));
+                emotions.push(sessionStorage.getItem('emote9_v'));
+                emotions.push(sessionStorage.getItem('emote10_e'));
+                emotions.push(sessionStorage.getItem('emote10_v'));
+                emotions.push(sessionStorage.getItem('emote11_e'));
+                emotions.push(sessionStorage.getItem('emote11_v'));
+                emotions.push(sessionStorage.getItem('emote12_e'));
+                emotions.push(sessionStorage.getItem('emote12_v'));
+                emotions.push(sessionStorage.getItem('emote13_e'));
+                emotions.push(sessionStorage.getItem('emote13_v'));
+                emotions.push(sessionStorage.getItem('emote14_e'));
+                emotions.push(sessionStorage.getItem('emote14_v'));
+                emotions.push(sessionStorage.getItem('emote15_e'));
+                emotions.push(sessionStorage.getItem('emote15_v'));
+                emotions.push(sessionStorage.getItem('emote16_e'));
+                emotions.push(sessionStorage.getItem('emote16_v'));
+                emotions.push(sessionStorage.getItem('emote17_e'));
+                emotions.push(sessionStorage.getItem('emote17_v'));
+                emotions.push(sessionStorage.getItem('emote18_e'));
+                emotions.push(sessionStorage.getItem('emote18_v'));
+                emotions.push(sessionStorage.getItem('emote19_e'));
+                emotions.push(sessionStorage.getItem('emote19_v'));
+                emotions.push(sessionStorage.getItem('emote20_e'));
+                emotions.push(sessionStorage.getItem('emote20_v'));
+                emotions.push(sessionStorage.getItem('emote21_e'));
+                emotions.push(sessionStorage.getItem('emote21_v'));
+                emotions.push(sessionStorage.getItem('emote22_e'));
+                emotions.push(sessionStorage.getItem('emote22_v'));
+                emotions.push(sessionStorage.getItem('emote23_e'));
+                emotions.push(sessionStorage.getItem('emote23_v'));
+                emotions.push(sessionStorage.getItem('emote24_e'));
+                emotions.push(sessionStorage.getItem('emote24_v'));
+                emotions.push(sessionStorage.getItem('emote25_e'));
+                emotions.push(sessionStorage.getItem('emote25_v'));
+                emotions.push(sessionStorage.getItem('emote26_e'));
+                emotions.push(sessionStorage.getItem('emote26_v'));
+                emotions.push(sessionStorage.getItem('emote27_e'));
+                emotions.push(sessionStorage.getItem('emote27_v'));
+                emotions.push(sessionStorage.getItem('emote28_e'));
+                emotions.push(sessionStorage.getItem('emote28_v'));
+                emotions.push(sessionStorage.getItem('emote29_e'));
+                emotions.push(sessionStorage.getItem('emote29_v'));
+                emotions.push(sessionStorage.getItem('emote30_e'));
+                emotions.push(sessionStorage.getItem('emote30_v'));
+                emotions.push(sessionStorage.getItem('emote31_e'));
+                emotions.push(sessionStorage.getItem('emote31_v'));
+                emotions.push(sessionStorage.getItem('emote32_e'));
+                emotions.push(sessionStorage.getItem('emote32_v'));
+                emotions.push(sessionStorage.getItem('emote33_e'));
+                emotions.push(sessionStorage.getItem('emote33_v'));
+                emotions.push(sessionStorage.getItem('emote34_e'));
+                emotions.push(sessionStorage.getItem('emote34_v'));
+                emotions.push(document.getElementById("selectedOption").value);
                 emotions.push(document.getElementById("selectedOption").value);
                 
                 console.log('Emotions array:', emotions); // Log the emotions array

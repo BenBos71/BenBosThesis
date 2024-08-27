@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>CinSandE</title>
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/main.js"></script>
     <script>
         window.addEventListener('load', function() {
             // Set the source of the image element to display the random image
@@ -24,8 +25,7 @@
         });
     </script>
   </head>
-  <body>
-    <img src="../images/wsuLogo.png" alt="Weber State University Logo" class="logo"/>
+    <body>
     <br />
     <div class="content">
         <img id="image_display" src="" alt="" class="ind_pic"/>
@@ -36,9 +36,22 @@
             <div class="dropdown">
                 <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Select an option:</button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#" onclick="selectOption('Happy')">Happy</a>
-                    <a href="#" onclick="selectOption('Sad')">Sad</a>
+                    <a href="#" onclick="selectOption('Enjoyment')">Enjoyment</a>
+                    <a href="#" onclick="selectOption('Sadness')">Sadness</a>
+                    <a href="#" onclick="selectOption('Anger')">Anger</a>
+                    <a href="#" onclick="selectOption('Contempt')">Contempt</a>
+                    <a href="#" onclick="selectOption('Disgust')">Disgust</a>
+                    <a href="#" onclick="selectOption('Fear')">Fear</a>
+                    <a href="#" onclick="selectOption('Surprise')">Surprise</a>
                 </div>
+            </div>
+            <div>
+                <p>Positive or Negative:</p>
+                <input type="radio" id="positive" name="radioOption" value="positive">
+                <label for="positive">Positive</label><br>
+                
+                <input type="radio" id="negative" name="radioOption" value="negative">
+                <label for="negative">Negative</label><br>
             </div>
             <input type="hidden" id="selectedOption" name="selectedOption" value="">
             <input type="submit"  value="Next"/>
@@ -51,51 +64,9 @@
             validateForm(event); // Call the validation function
         });
 
-        function toggleDropdown() {
-            var dropdownMenu = document.getElementById("myDropdown");
-            if (dropdownMenu.style.display === "none") {
-                dropdownMenu.style.display = "block";
-            }
-            else {
-                dropdownMenu.style.display = "none";
-            }
-        }
-
-        function selectOption(optionText) {
-            var dropdownButton = document.getElementById("dropbtn");
-            dropdownButton.textContent = optionText;
-
-            var dropdownMenu = document.getElementById("myDropdown");
-            dropdownMenu.style.display = "none"; 
-            
-            document.getElementById("selectedOption").value = optionText;
-        }
-
-        function validateForm(event) {
-            var selectedOption = document.getElementById("selectedOption").value;
-            if (!selectedOption) {
-                alert("Please select an option from the dropdown.");
-                event.preventDefault();
-            }
-            else {
-                next();
-            }
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "block") {
-                        openDropdown.style.display = "none";
-                    }
-                }
-            }
-        }
-
         function next() {
-            sessionStorage.setItem('emote32', document.getElementById("selectedOption").value)
+            sessionStorage.setItem('emote32_e', document.getElementById("selectedOption").value);
+            sessionStorage.setItem('emote32_v', valence);
             window.location.assign('survey_33.html');
         }
     </script>
