@@ -64,7 +64,8 @@
             validateForm(event); // Call the validation function
         });
 
-        function next() {
+        function next(valence)
+        {
             sessionStorage.setItem('emote16_e', document.getElementById("selectedOption").value);
             sessionStorage.setItem('emote16_v', valence);
             window.location.assign('survey_17.html');
