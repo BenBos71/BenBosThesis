@@ -76,6 +76,11 @@
 
         function next(valence)
         { 
+            if (valence === 'positive') {
+                valence = 'p';
+            } else {
+                valence = 'n';
+            }
             sessionStorage.setItem('emote1_e', document.getElementById("selectedOption").value);
             sessionStorage.setItem('emote1_v', valence);
             window.location.assign('survey_2.html');

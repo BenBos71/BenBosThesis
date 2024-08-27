@@ -140,7 +140,12 @@
                 emotions.push(sessionStorage.getItem('emote34_e'));
                 emotions.push(sessionStorage.getItem('emote34_v'));
                 emotions.push(document.getElementById("selectedOption").value);
-                emotions.push(valence); 
+                if (valence === 'positive') {
+                    emotions.push('p');
+                } else {
+                    emotions.push('n');
+                }
+                // emotions.push(valence); 
                 
                 console.log('Emotions array:', emotions); // Log the emotions array
 
