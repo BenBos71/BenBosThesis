@@ -17,6 +17,17 @@
 
 }
 
+.indexDrop {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 33px;
+    box-sizing: border-box;
+    padding: 8px;
+    margin-bottom: 1rem;
+    /* max-width: 300px; */
+}
+
 /* Dropdown Button */
 .dropbtn
 {
@@ -171,8 +182,8 @@ form input[type="submit"] {
 }
 
 .scrollable-box {
-    width: 300px;         /* Set the width of the box */
-    height: 150px;        /* Set the height of the box */
+    width: 400px;         /* Set the width of the box */
+    height: 200px;        /* Set the height of the box */
     padding: 10px;        /* Optional: Add padding inside the box */
     border: 1px solid #ccc; /* Optional: Add a border around the box */
     overflow-y: scroll;   /* Enable vertical scrolling */
@@ -205,5 +216,8 @@ form input[type="submit"] {
     }
     .dropdown {
         max-width: 100%; /* Allow dropdown to use full width */
+    }
+    .indexDrop {
+        max-width: 100%;
     }
 }
