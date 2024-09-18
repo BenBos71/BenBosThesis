@@ -17,6 +17,48 @@
 
 }
 
+.styled-input {
+    width: 582px;
+    height: 40px; /* Adjusted height */
+    padding: 0 8px; /* Horizontal padding only */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 40px; /* Match line height to height for vertical centering */
+    box-sizing: border-box;
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+}
+
+select.styled-input {
+    padding: 0 8px; /* Set explicit padding */
+    padding-right: 40px; /* Space for the custom arrow */
+    height: 40px; /* Set the same height as input */
+    line-height: 40px; /* Align text vertically */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    background-color: white;
+    color: #000;
+    appearance: none;
+    text-align: center;
+    text-align-last: center;
+}
+
+.styled-input:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+}
+
+#dSex, #dEdLvl, #dEdField
+{
+    margin-bottom: 1rem;
+}
+
 .indexDrop {
     position: relative;
     display: inline-block;
