@@ -34,7 +34,8 @@
         <br />
         <form id="demoForm" >
             <div class="dropdown">
-                <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Select an option:</button>
+                <p>Emotion:</p>
+                <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Click here to select an option:</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="#" onclick="selectOption('Enjoyment')">Enjoyment</a>
                     <a href="#" onclick="selectOption('Sadness')">Sadness</a>
@@ -47,14 +48,16 @@
             </div>
             <div>
                 <p>Positive or Negative:</p>
-                <input type="radio" id="positive" name="radioOption" value="positive">
-                <label for="positive">Positive</label><br>
-                
-                <input type="radio" id="negative" name="radioOption" value="negative">
-                <label for="negative">Negative</label><br>
+                <div class="radio-group">
+                    <input type="radio" id="positive" name="radioOption" value="positive">
+                    <label for="positive">Positive</label><br>
+
+                    <input type="radio" id="negative" name="radioOption" value="negative">
+                    <label for="negative">Negative</label><br>
+                </div>
             </div>
             <input type="hidden" id="selectedOption" name="selectedOption" value="">
-            <input type="submit"  value="Next"/>
+            <input type="submit"  value="Next" class="subButt"/>
         </form>
     </div>
     <br />
