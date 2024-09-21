@@ -17,6 +17,41 @@
 
 }
 
+.subButt {
+    font-family: "Arial", sans-serif; /* Change to the desired font */
+    font-size: 16px; /* Adjust the font size */
+    color: #ffffff; /* Set text color (white in this case) */
+    background-color: #007bff; /* Change button background color */
+    padding: 10px 20px; /* Add padding for better appearance */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Optional: Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.subButt:hover {
+    background-color: #0056b3; /* Change background on hover */
+}
+
+
+/* .subButt
+{
+    width: 80px;
+    height: 40px;
+}
+
+.subButt:hover
+{
+    background-color: #777777;
+} */
+
+#sentence {
+    font-family: "Arial", sans-serif; /* Change this to any font you want */
+    font-size: 18px; /* Adjust the font size */
+    color: #333; /* Change the color */
+    font-style: italic; /* Example: Make the text italic */
+}
+
+
 .styled-input {
     width: 582px;
     height: 40px; /* Adjusted height */
@@ -73,8 +108,8 @@ select.styled-input {
 /* Dropdown Button */
 .dropbtn
 {
-    background-color: #3498db;
-    color: white;
+    background-color: #f9f9f9;
+    color: #000;
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -89,17 +124,47 @@ select.styled-input {
 }
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content
+/* .dropdown-content
 {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     /* min-width: 160px; */
-    min-width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
+    /* min-width: 100%; */
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    /* z-index: 1; */
+/* }  */
   
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Move it to exact center */
+    background-color: #ffffff;
+    width: 80vw; /* 80% of the viewport width, scales with screen size */
+    max-width: 400px; /* Optional: Limit the maximum width */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 20px; /* Add some padding for spacing */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.radio-group {
+    display: flex;
+    align-items: center; /* Aligns the radio buttons and labels vertically */
+    gap: 10px; /* Adds spacing between the radio buttons and labels */
+}
+
+.radio-group label {
+    margin-right: 20px; /* Adds space between the label and the next radio button */
+}
+
+
+
+
+
+
 /* Links inside the Dropdown */
 .dropdown-content a
 {
@@ -112,7 +177,7 @@ select.styled-input {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover
 {
-    background-color: #f1f1f1;
+    background-color: #6243ff;
 }
 
 /* Show the dropdown menu on hover */
@@ -224,15 +289,17 @@ form input[type="submit"] {
 }
 
 .scrollable-box {
-    width: 400px;         /* Set the width of the box */
-    height: 200px;        /* Set the height of the box */
-    padding: 10px;        /* Optional: Add padding inside the box */
-    border: 1px solid #ccc; /* Optional: Add a border around the box */
-    overflow-y: scroll;   /* Enable vertical scrolling */
-    overflow-x: hidden;   /* Optional: Hide horizontal scrolling */
+    width: 90vw;           /* 80% of the viewport width, adjusts with screen size */
+    max-width: 800px;      /* Limits the max width to 800px */
+    height: 90vh;          /* 60% of the viewport height, scales with screen size */
+    max-height: 600px;     /* Limits the max height to 600px */
+    padding: 10px;         /* Add padding inside the box */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    overflow-y: scroll;    /* Enable vertical scrolling */
+    overflow-x: hidden;    /* Hide horizontal scrolling */
     background-color: #f9f9f9; /* Optional: Set background color */
+    box-sizing: border-box; /* Ensures padding is included in width/height */
 }
-
 .consentButton {
     font-size: 20px;       /* Increase the font size */
     padding: 15px 30px;    /* Increase padding for a larger button */
@@ -261,5 +328,9 @@ form input[type="submit"] {
     }
     .indexDrop {
         max-width: 100%;
+    }
+    .scrollable-box {
+        width: 90vw;        /* Increase width to 90% for smaller screens */
+        height: 50vh;       /* Adjust height for smaller screens */
     }
 }
