@@ -7,6 +7,7 @@
     <script src="../js/main.js"></script>
     <script>
         window.addEventListener('load', function() {
+            startTime = Date.now();
             // Set the source of the image element to display the random image
             // Retrieve the image_dir value from sessionStorage
             var imageDir = sessionStorage.getItem("image_dir");
@@ -74,6 +75,7 @@
             } else {
                 valence = 'n';
             }
+            sessionStorage.setItem('time17', Date.now() - startTime);
             sessionStorage.setItem('emote17_e', document.getElementById("selectedOption").value);
             sessionStorage.setItem('emote17_v', valence);
             window.location.assign('survey_18.html');

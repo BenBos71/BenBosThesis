@@ -7,6 +7,7 @@
     <script src="../js/main.js"></script>
     <script>
         window.addEventListener('load', function() {
+            startTime = Date.now();
             // Set the source of the image element to display the random image
             // Retrieve the image_dir value from sessionStorage
             var imageDir = sessionStorage.getItem("image_dir");
@@ -34,7 +35,6 @@
         <br />
         <form id="demoForm" >
             <div class="dropdown">
-                <p>Emotion:</p>
                 <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Click here to select an option:</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="#" onclick="selectOption('Enjoyment')">Enjoyment</a>
@@ -74,6 +74,7 @@
             } else {
                 valence = 'n';
             }
+            sessionStorage.setItem('time3', Date.now() - startTime);
             sessionStorage.setItem('emote3_e', document.getElementById("selectedOption").value);
             sessionStorage.setItem('emote3_v', valence);
             window.location.assign('survey_4.html');

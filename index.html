@@ -9,7 +9,7 @@
 <body>
   <img src="images/wsuLogo.png" alt="Description of the image" class="logo"/>
   <br />
-  <div class="scrollable-box" >
+  <div class="scrollable-box">
     <p><strong>IRB STUDY #IRB-AY23-24-360</strong></p>
     <p><strong>WEBER STATE UNIVERSITY</strong><br>
     <strong>INFORMED CONSENT</strong><br>
@@ -71,10 +71,7 @@
 
     <p>If requested, I will be given a copy of this informed consent document to keep for my records by contacting Ben Bos at johnbos@mail.weber.edu.</p>
 
-    <p>I agree to take part in this study.</p>
-
-    <!-- <p><strong>By clicking submit you agree to everything mentioned above.</strong></p> -->
-</div>
+  </div>
 <p><strong>By clicking submit you agree to everything mentioned above.</strong></p>
   <div class="form-container">
     <form id="myForm" action="https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha" method="POST">
@@ -96,6 +93,16 @@
     }
 
     function onReCaptchaSuccess(token) {
+      // Fetch the user's public IP address using the ipify API
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          sessionStorage.setItem('ip', data.ip);
+        })
+        .catch(error => {
+          console.error('Error fetching IP address:', error);
+      });
+      sessionStorage.setItem('formSubmit', 'false');
       document.getElementById('g-recaptcha-response').value = token;
 
       // Send the CAPTCHA response to the server

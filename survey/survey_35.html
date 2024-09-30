@@ -7,6 +7,7 @@
     <script src="../js/main.js"></script>
     <script>
         window.addEventListener('load', function() {
+            startTime = Date.now();
             var imageDir = sessionStorage.getItem("image_dir");
 
             // Check if the value is not "none"
@@ -69,79 +70,115 @@
             if (sessionStorage.getItem('formSubmit') === 'false')
             {
                 let emotions = [];
+                emotions.push(sessionStorage.getItem('ip'));
                 emotions.push(sessionStorage.getItem('age'));
                 emotions.push(sessionStorage.getItem('sex'));
                 emotions.push(sessionStorage.getItem('ed_level'));
                 emotions.push(sessionStorage.getItem('ed_field'));
                 emotions.push(sessionStorage.getItem('image_dir'));
+                emotions.push(sessionStorage.getItem('time1'));
                 emotions.push(sessionStorage.getItem('emote1_e'));
                 emotions.push(sessionStorage.getItem('emote1_v'));
+                emotions.push(sessionStorage.getItem('time2'));
                 emotions.push(sessionStorage.getItem('emote2_e'));
                 emotions.push(sessionStorage.getItem('emote2_v'));
+                emotions.push(sessionStorage.getItem('time3'));
                 emotions.push(sessionStorage.getItem('emote3_e'));
                 emotions.push(sessionStorage.getItem('emote3_v'));
+                emotions.push(sessionStorage.getItem('time4'));
                 emotions.push(sessionStorage.getItem('emote4_e'));
                 emotions.push(sessionStorage.getItem('emote4_v'));
+                emotions.push(sessionStorage.getItem('time5'));
                 emotions.push(sessionStorage.getItem('emote5_e'));
                 emotions.push(sessionStorage.getItem('emote5_v'));
+                emotions.push(sessionStorage.getItem('time6'));
                 emotions.push(sessionStorage.getItem('emote6_e'));
                 emotions.push(sessionStorage.getItem('emote6_v'));
+                emotions.push(sessionStorage.getItem('time7'));
                 emotions.push(sessionStorage.getItem('emote7_e'));
                 emotions.push(sessionStorage.getItem('emote7_v'));
+                emotions.push(sessionStorage.getItem('time8'));
                 emotions.push(sessionStorage.getItem('emote8_e'));
                 emotions.push(sessionStorage.getItem('emote8_v'));
+                emotions.push(sessionStorage.getItem('time9'));
                 emotions.push(sessionStorage.getItem('emote9_e'));
                 emotions.push(sessionStorage.getItem('emote9_v'));
+                emotions.push(sessionStorage.getItem('time10'));
                 emotions.push(sessionStorage.getItem('emote10_e'));
                 emotions.push(sessionStorage.getItem('emote10_v'));
+                emotions.push(sessionStorage.getItem('time11'));
                 emotions.push(sessionStorage.getItem('emote11_e'));
                 emotions.push(sessionStorage.getItem('emote11_v'));
+                emotions.push(sessionStorage.getItem('time12'));
                 emotions.push(sessionStorage.getItem('emote12_e'));
                 emotions.push(sessionStorage.getItem('emote12_v'));
+                emotions.push(sessionStorage.getItem('time13'));
                 emotions.push(sessionStorage.getItem('emote13_e'));
                 emotions.push(sessionStorage.getItem('emote13_v'));
+                emotions.push(sessionStorage.getItem('time14'));
                 emotions.push(sessionStorage.getItem('emote14_e'));
                 emotions.push(sessionStorage.getItem('emote14_v'));
+                emotions.push(sessionStorage.getItem('time15'));
                 emotions.push(sessionStorage.getItem('emote15_e'));
                 emotions.push(sessionStorage.getItem('emote15_v'));
+                emotions.push(sessionStorage.getItem('time16'));
                 emotions.push(sessionStorage.getItem('emote16_e'));
                 emotions.push(sessionStorage.getItem('emote16_v'));
+                emotions.push(sessionStorage.getItem('time17'));
                 emotions.push(sessionStorage.getItem('emote17_e'));
                 emotions.push(sessionStorage.getItem('emote17_v'));
+                emotions.push(sessionStorage.getItem('time18'));
                 emotions.push(sessionStorage.getItem('emote18_e'));
                 emotions.push(sessionStorage.getItem('emote18_v'));
+                emotions.push(sessionStorage.getItem('time19'));
                 emotions.push(sessionStorage.getItem('emote19_e'));
                 emotions.push(sessionStorage.getItem('emote19_v'));
+                emotions.push(sessionStorage.getItem('time20'));
                 emotions.push(sessionStorage.getItem('emote20_e'));
                 emotions.push(sessionStorage.getItem('emote20_v'));
+                emotions.push(sessionStorage.getItem('time21'));
                 emotions.push(sessionStorage.getItem('emote21_e'));
                 emotions.push(sessionStorage.getItem('emote21_v'));
+                emotions.push(sessionStorage.getItem('time22'));
                 emotions.push(sessionStorage.getItem('emote22_e'));
                 emotions.push(sessionStorage.getItem('emote22_v'));
+                emotions.push(sessionStorage.getItem('time23'));
                 emotions.push(sessionStorage.getItem('emote23_e'));
                 emotions.push(sessionStorage.getItem('emote23_v'));
+                emotions.push(sessionStorage.getItem('time24'));
                 emotions.push(sessionStorage.getItem('emote24_e'));
                 emotions.push(sessionStorage.getItem('emote24_v'));
+                emotions.push(sessionStorage.getItem('time25'));
                 emotions.push(sessionStorage.getItem('emote25_e'));
                 emotions.push(sessionStorage.getItem('emote25_v'));
+                emotions.push(sessionStorage.getItem('time26'));
                 emotions.push(sessionStorage.getItem('emote26_e'));
                 emotions.push(sessionStorage.getItem('emote26_v'));
+                emotions.push(sessionStorage.getItem('time27'));
                 emotions.push(sessionStorage.getItem('emote27_e'));
                 emotions.push(sessionStorage.getItem('emote27_v'));
+                emotions.push(sessionStorage.getItem('time28'));
                 emotions.push(sessionStorage.getItem('emote28_e'));
                 emotions.push(sessionStorage.getItem('emote28_v'));
+                emotions.push(sessionStorage.getItem('time29'));
                 emotions.push(sessionStorage.getItem('emote29_e'));
                 emotions.push(sessionStorage.getItem('emote29_v'));
+                emotions.push(sessionStorage.getItem('time30'));
                 emotions.push(sessionStorage.getItem('emote30_e'));
                 emotions.push(sessionStorage.getItem('emote30_v'));
+                emotions.push(sessionStorage.getItem('time31'));
                 emotions.push(sessionStorage.getItem('emote31_e'));
                 emotions.push(sessionStorage.getItem('emote31_v'));
+                emotions.push(sessionStorage.getItem('time32'));
                 emotions.push(sessionStorage.getItem('emote32_e'));
                 emotions.push(sessionStorage.getItem('emote32_v'));
+                emotions.push(sessionStorage.getItem('time33'));
                 emotions.push(sessionStorage.getItem('emote33_e'));
                 emotions.push(sessionStorage.getItem('emote33_v'));
+                emotions.push(sessionStorage.getItem('time34'));
                 emotions.push(sessionStorage.getItem('emote34_e'));
                 emotions.push(sessionStorage.getItem('emote34_v'));
+                emotions.push((Date.now() - startTime).toString());
                 emotions.push(document.getElementById("selectedOption").value);
                 if (valence === 'positive') {
                     emotions.push('p');
@@ -167,8 +204,8 @@
                 })
                 .then(data => {
                     console.log('Server response:', data);
-                    alert("Thank you for completing the survey!  You may now close this window.");
                     sessionStorage.setItem('formSubmit', 'true');
+                    alert("Thank you for completing the survey!  You may now close this window.");
                 })
                 .catch(error => {
                     console.error('Fetch error:', error);

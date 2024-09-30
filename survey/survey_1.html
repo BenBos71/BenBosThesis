@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/main.js"></script>
     <script>
+        let startTime;
         window.addEventListener('load', function() {
+            startTime = Date.now();
             // Array of image filenames
             var images = [
                 "happy",
@@ -80,6 +82,12 @@
 
         function next(valence)
         {
+            if (valence === 'positive') {
+                valence = 'p';
+            } else {
+                valence = 'n';
+            }
+            sessionStorage.setItem('time1', Date.now() - startTime);
             sessionStorage.setItem('emote1_e', document.getElementById("selectedOption").value);
             sessionStorage.setItem('emote1_v', valence);
             window.location.assign('survey_2.html');
