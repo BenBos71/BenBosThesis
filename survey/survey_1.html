@@ -10,21 +10,15 @@
         window.addEventListener('load', function() {
             document.body.style.display = 'none';
             startTime = Date.now();
-            // Array of image filenames
             var images = [
                 "happy",
                 "sad",
                 "none",
-                // Add more image filenames as needed
             ];
 
-            // Generate a random index to select a random image from the array
             var randomIndex = Math.floor(Math.random() * images.length);
-
-            // Get the random image filename
             var image_dir = images[randomIndex];
 
-            // Set the source of the image element to display the random image
             if (image_dir !== "none")
             {
                 document.getElementById("image_display").src = "../images/survey_images/" + image_dir + "/1.jpg";
@@ -32,7 +26,6 @@
             document.getElementById("sentence").textContent = "My old cat has died and gone to the next life.";
             sessionStorage.setItem("image_dir", image_dir);
 
-            // Get dropdown var
             var dropdownMenu = document.getElementById("myDropdown");
             dropdownMenu.style.display = "none";
             document.body.style.display = 'flex';
@@ -77,11 +70,6 @@
     </div>
     <br />
     <script type="text/javascript">
-        document.getElementById('demoForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting the traditional way
-            validateForm(event); // Call the validation function
-        });
-
         function next(valence)
         {
             if (valence === 'positive') {

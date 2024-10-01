@@ -35,7 +35,7 @@
     </div>
     <script type="text/javascript">
         document.getElementById('demoForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting the traditional way
+            event.preventDefault();
             demo_to_session();
          });
 
@@ -58,8 +58,7 @@
               {
                 sessionStorage.setItem('ed_field', sEdField);
               }
-
-              // Navigate to the new page
+              
               window.location.assign('survey/survey_1.html');
             }
             else

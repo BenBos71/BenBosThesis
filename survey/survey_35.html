@@ -11,15 +11,12 @@
             startTime = Date.now();
             var imageDir = sessionStorage.getItem("image_dir");
 
-            // Check if the value is not "none"
             if (imageDir !== "none") {
-                // Update the src attribute of the image element
                 document.getElementById("image_display").src = "../images/survey_images/" + imageDir + 
                 "/35.jpg";
             }
             document.getElementById("sentence").textContent = "By the tranquil lake, beneath the setting sun.";
 
-            // Get dropdown var
             var dropdownMenu = document.getElementById("myDropdown");
             dropdownMenu.style.display = "none";
             document.body.style.display = 'flex';

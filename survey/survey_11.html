@@ -9,19 +9,14 @@
         window.addEventListener('load', function() {
             document.body.style.display = 'none';
             startTime = Date.now();
-            // Set the source of the image element to display the random image
-            // Retrieve the image_dir value from sessionStorage
             var imageDir = sessionStorage.getItem("image_dir");
 
-            // Check if the value is not "none"
             if (imageDir !== "none") {
-                // Update the src attribute of the image element
                 document.getElementById("image_display").src = "../images/survey_images/" + imageDir + 
             "/11.jpg";
             }
             document.getElementById("sentence").textContent = "The sound of thunder rumbled.";
 
-            // Get dropdown var
             var dropdownMenu = document.getElementById("myDropdown");
             dropdownMenu.style.display = "none";
             document.body.style.display = 'flex';
@@ -65,11 +60,6 @@
     </div>
     <br />
     <script type="text/javascript">
-        document.getElementById('demoForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting the traditional way
-            validateForm(event); // Call the validation function
-        });
-
         function next(valence)
         { 
             if (valence === 'positive') {
