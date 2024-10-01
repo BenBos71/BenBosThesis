@@ -1,65 +1,41 @@
 .ind_pic
 {
-    /* Add your styling properties here */
-   /*width: 200px; /*Example width */
-    /*height: auto;/* Example height
-    border: 2px solid #ccc; /*Example border
-    border-radius: 8px; /*Example border radius
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Example box shadow
-    /* Add more styles as needed */
-
-    /* max-width: 100%;
-    height: auto; */
-
     max-width: 200px;
     height: auto;
-    margin-bottom: 1rem; /* Add some space below the image */
-
+    margin-bottom: 1rem;
 }
 
 .subButt {
-    font-family: "Arial", sans-serif; /* Change to the desired font */
-    font-size: 16px; /* Adjust the font size */
-    color: #ffffff; /* Set text color (white in this case) */
-    background-color: #007bff; /* Change button background color */
-    padding: 10px 20px; /* Add padding for better appearance */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Optional: Rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .subButt:hover {
-    background-color: #0056b3; /* Change background on hover */
+    background-color: #0056b3;
 }
-
-
-/* .subButt
-{
-    width: 80px;
-    height: 40px;
-}
-
-.subButt:hover
-{
-    background-color: #777777;
-} */
 
 #sentence {
-    font-family: "Arial", sans-serif; /* Change this to any font you want */
-    font-size: 18px; /* Adjust the font size */
-    color: #333; /* Change the color */
-    font-style: italic; /* Example: Make the text italic */
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    color: #333;
+    font-style: italic;
 }
 
 
 .styled-input {
     width: 582px;
-    height: 40px; /* Adjusted height */
-    padding: 0 8px; /* Horizontal padding only */
+    height: 40px;
+    padding: 0 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    line-height: 40px; /* Match line height to height for vertical centering */
+    line-height: 40px;
     box-sizing: border-box;
     background-color: white;
     appearance: none;
@@ -69,10 +45,10 @@
 }
 
 select.styled-input {
-    padding: 0 8px; /* Set explicit padding */
-    padding-right: 40px; /* Space for the custom arrow */
-    height: 40px; /* Set the same height as input */
-    line-height: 40px; /* Align text vertically */
+    padding: 0 8px;
+    padding-right: 40px;
+    height: 40px;
+    line-height: 40px;
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 12px;
@@ -102,10 +78,8 @@ select.styled-input {
     box-sizing: border-box;
     padding: 8px;
     margin-bottom: 1rem;
-    /* max-width: 300px; */
 }
 
-/* Dropdown Button */
 .dropbtn
 {
     background-color: #f9f9f9;
@@ -120,52 +94,34 @@ select.styled-input {
     position: relative;
     display: inline-block;
     width: 100%;
-    max-width: 300px; /* Limit the dropdown width */
+    max-width: 300px;
 }
 
-/* Dropdown Content (Hidden by Default) */
-/* .dropdown-content
-{
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    /* min-width: 160px; */
-    /* min-width: 100%; */
-    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-    /* z-index: 1; */
-/* }  */
-  
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Move it to exact center */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #ffffff;
-    width: 80vw; /* 80% of the viewport width, scales with screen size */
-    max-width: 400px; /* Optional: Limit the maximum width */
+    width: 80vw;
+    max-width: 400px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    padding: 20px; /* Add some padding for spacing */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .radio-group {
     display: flex;
-    align-items: center; /* Aligns the radio buttons and labels vertically */
-    gap: 10px; /* Adds spacing between the radio buttons and labels */
+    align-items: center;
+    gap: 10px;
 }
 
 .radio-group label {
-    margin-right: 20px; /* Adds space between the label and the next radio button */
+    margin-right: 20px;
 }
 
-
-
-
-
-
-/* Links inside the Dropdown */
 .dropdown-content a
 {
     color: black;
@@ -174,19 +130,16 @@ select.styled-input {
     display: block;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover
 {
     background-color: #6243ff;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content
 {
     display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn
 {
     background-color: #2980b9;
@@ -213,12 +166,9 @@ body {
 
 .logo {
     position: absolute;
-    /* top: 10px;
-    left: 10px;
-    width: 150px; Adjust as needed */
     top: 1rem;
     left: 1rem;
-    width: 20%; /* Adjust as needed */
+    width: 20%;
     max-width: 200px;
 }
 
@@ -228,8 +178,8 @@ body {
     align-items: center;
     text-align: center;
     width: 100%;
-    max-width: 600px; /* Limit the maximum width for larger screens */
-    margin: 2rem 0; /* Add some vertical spacing */
+    max-width: 600px;
+    margin: 2rem 0;
 }
 
 form {
@@ -240,14 +190,14 @@ form {
 }
 
 form label {
-    margin-bottom: 0.5rem; /* Add some space below labels */
+    margin-bottom: 0.5rem;
 }
 
 form input[type="number"],
 form input[type="text"] {
     width: 100%;
     padding: 0.5rem;
-    margin-bottom: 1rem; /* Add space below inputs */
+    margin-bottom: 1rem;
     box-sizing: border-box;
 }
 
@@ -263,13 +213,6 @@ form input[type="submit"] {
     margin-top: 20px;
   }
   .form-container {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; */
     text-align: center;
   }
 
@@ -289,48 +232,47 @@ form input[type="submit"] {
 }
 
 .scrollable-box {
-    width: 90vw;           /* 80% of the viewport width, adjusts with screen size */
-    max-width: 800px;      /* Limits the max width to 800px */
-    height: 90vh;          /* 60% of the viewport height, scales with screen size */
-    max-height: 600px;     /* Limits the max height to 600px */
-    padding: 10px;         /* Add padding inside the box */
-    border: 1px solid #ccc; /* Optional: Add a border */
-    overflow-y: scroll;    /* Enable vertical scrolling */
-    overflow-x: hidden;    /* Hide horizontal scrolling */
-    background-color: #f9f9f9; /* Optional: Set background color */
-    box-sizing: border-box; /* Ensures padding is included in width/height */
+    width: 90vw;
+    max-width: 800px;
+    height: 90vh;
+    max-height: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
 }
 .consentButton {
-    font-size: 20px;       /* Increase the font size */
-    padding: 15px 30px;    /* Increase padding for a larger button */
-    background-color: #4CAF50; /* Optional: Change the background color */
-    color: white;          /* Optional: Change the text color */
-    border: none;          /* Optional: Remove the border */
-    border-radius: 5px;    /* Optional: Add rounded corners */
-    cursor: pointer;       /* Optional: Change the cursor to a pointer */
+    font-size: 20px;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .consentButton:hover {
-    background-color: #45a049; /* Optional: Add a hover effect */
+    background-color: #45a049;
 }
 
-/* Media Queries for Responsive Design */
 @media (max-width: 600px) {
     .logo {
-        width: 20%; /* Adjust logo size for smaller screens */
-        max-width: 100px; /* Ensure logo does not get too large */
+        width: 20%;
+        max-width: 100px;
     }
     .content {
-        margin: 1rem 0; /* Reduce vertical spacing for smaller screens */
+        margin: 1rem 0;
     }
     .dropdown {
-        max-width: 100%; /* Allow dropdown to use full width */
+        max-width: 100%;
     }
     .indexDrop {
         max-width: 100%;
     }
     .scrollable-box {
-        width: 90vw;        /* Increase width to 90% for smaller screens */
-        height: 50vh;       /* Adjust height for smaller screens */
+        width: 90vw;
+        height: 50vh;
     }
 }

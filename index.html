@@ -93,7 +93,6 @@
     }
 
     function onReCaptchaSuccess(token) {
-      // Fetch the user's public IP address using the ipify API
       fetch('https://api.ipify.org?format=json')
         .then(response => response.json())
         .then(data => {
@@ -105,7 +104,6 @@
       sessionStorage.setItem('formSubmit', 'false');
       document.getElementById('g-recaptcha-response').value = token;
 
-      // Send the CAPTCHA response to the server
       fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/verify-recaptcha', {
         method: 'POST',
         headers: {
@@ -118,8 +116,6 @@
       .then(response => response.text())
       .then(data => {
         if (data.includes('CAPTCHA verified successfully')) {
-          // Navigate to index2.html upon successful verification
-          console.log("testing");
           window.location.href = 'index2.html';
         } else {
           alert('CAPTCHA verification failed. Please try again.');
