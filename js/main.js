@@ -58,8 +58,4 @@ window.onclick = function(event) {
     }
 }
 
-document.getElementById('demoForm').addEventListener('submit', function(event) {
-    event.preventDefault(); 
-    validateForm(event);
-});
 
