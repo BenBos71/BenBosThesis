@@ -29,7 +29,11 @@
             <option value="gradSchoolPlus">Graduate School or Higher</option>
         </select>
         <label for="dEdField">Field of Education (if applicable):</label>
-        <input type="text" id="dEdField" name="dEdField" class="styled-input" placeholder="Enter Field of Education Here"/>
+        <select id="dEdField" name="dEdField" class="styled-input" required>
+            <option value="" disabled selected>--Click here to select an option--</option>
+            <option value="stem">STEM Field</option>
+            <option value="non-stem">Non-STEM Field</option>
+        </select>
         <input type="submit"  value="Submit!"/>
       </form>
     </div>
@@ -58,7 +62,7 @@
               {
                 sessionStorage.setItem('ed_field', sEdField);
               }
-              
+
               window.location.assign('survey/survey_1.html');
             }
             else
