@@ -179,6 +179,14 @@ form label
     max-width: 200px;
 }
 
+#page-counter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 150px; /* Optional: Adds some space from the edges */
+  }
+  
+
 .radio-group
 {
     display: flex;
