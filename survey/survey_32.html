@@ -36,13 +36,13 @@
                 <p>Emotion:</p>
                 <button type="button" onclick="toggleDropdown()" class="dropbtn" id="dropbtn">Click here to select an option:</button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#" onclick="selectOption('Enjoyment')">Enjoyment</a>
-                    <a href="#" onclick="selectOption('Sadness')">Sadness</a>
-                    <a href="#" onclick="selectOption('Anger')">Anger</a>
-                    <a href="#" onclick="selectOption('Contempt')">Contempt</a>
-                    <a href="#" onclick="selectOption('Disgust')">Disgust</a>
-                    <a href="#" onclick="selectOption('Fear')">Fear</a>
-                    <a href="#" onclick="selectOption('Surprise')">Surprise</a>
+                    <a href="#" id="enjoyment" onclick="selectOption('Enjoyment')">Enjoyment</a>
+                    <a href="#" id="sadness" onclick="selectOption('Sadness')">Sadness</a>
+                    <a href="#" id="anger" onclick="selectOption('Anger')">Anger</a>
+                    <a href="#" id="contempt" onclick="selectOption('Contempt')">Contempt</a>
+                    <a href="#" id="disgust" onclick="selectOption('Disgust')">Disgust</a>
+                    <a href="#" id="fear" onclick="selectOption('Fear')">Fear</a>
+                    <a href="#" id="surprise" onclick="selectOption('Surprise')">Surprise</a>
                 </div>
             </div>
             <div>
@@ -78,6 +78,49 @@
             sessionStorage.setItem('emote32_v', valence);
             window.location.assign('survey_33.html');
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdown = document.getElementById('myDropdown');
+            const links = Array.from(dropdown.getElementsByTagName('a'));
+
+            // Function to shuffle the array (Fisher-Yates algorithm)
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]]; // Swap
+                }
+                return array;
+            }
+
+            // Function to save the order of link IDs to sessionStorage
+            function saveOrderToSessionStorage(order) {
+                const linkIds = order.map(link => link.id);
+                sessionStorage.setItem('dropdownOrder', JSON.stringify(linkIds));
+            }
+
+            // Function to load the order from sessionStorage
+            function loadOrderFromSessionStorage() {
+                const storedOrder = sessionStorage.getItem('dropdownOrder');
+                if (storedOrder) {
+                    const linkIds = JSON.parse(storedOrder);
+                    return linkIds.map(id => document.getElementById(id));
+                }
+                return null;
+            }
+
+            // Check if we have an order stored in sessionStorage
+            let orderedLinks = loadOrderFromSessionStorage();
+
+            if (!orderedLinks) {
+                // If no order is stored, shuffle the links and save the order
+                orderedLinks = shuffleArray(links);
+                saveOrderToSessionStorage(orderedLinks);
+            }
+
+            // Append the links in the saved or shuffled order
+            orderedLinks.forEach(link => dropdown.appendChild(link));
+        });
+
     </script>
   </body>
 </html>
