@@ -57,3 +57,28 @@ window.onclick = function(event) {
         }
     }
 }
+
+
+// Function to fetch the survey count from the server
+async function fetchSurveyCount(pic_emotion, sex, ed_field) {
+    try {
+        const response = await fetch('/getSurveyCount', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ pic_emotion, sex, ed_field })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.count; // Return the count
+
+    } catch (error) {
+        console.error('Error fetching survey count:', error);
+        return null; // Return null or a default value in case of error
+    }
+}
