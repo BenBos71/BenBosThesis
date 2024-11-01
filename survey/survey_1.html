@@ -19,8 +19,26 @@
             var randomIndex = Math.floor(Math.random() * images.length);
             var image_dir = images[randomIndex];
 
-            let count = await fetchSurveyCount(image_dir, sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
-            console.log("COUNT: [" + count + "]");
+            fetchSurveyCount('happy', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
+            console.log("Happy COUNT: [" + sessionStorage.getItem('surveyCount') + "]");
+            var hapCount = sessionStorage.getItem('surveyCount');
+
+            fetchSurveyCount('sad', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
+            console.log("Sad COUNT: [" + sessionStorage.getItem('surveyCount') + "]");
+            var sadCount = sessionStorage.getItem('surveyCount');
+
+            fetchSurveyCount('none', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
+            console.log("None COUNT: [" + sessionStorage.getItem('surveyCount') + "]");
+            var nonCount = sessionStorage.getItem('surveyCount');
+
+            if (hapCount >= 30 && sadCount >= 30 && nonCount >= 30)
+            {
+                /* nothing */
+            }
+            else
+            {
+                image_dir = getImageDir(image_dir, hapCount, sadCount, nonCount);
+            }
 
             if (image_dir !== "none")
             {
