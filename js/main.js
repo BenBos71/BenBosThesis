@@ -96,3 +96,45 @@ async function fetchSurveyCount(pic_emotion, sex, ed_field) {
     //     return null; // Return null or a default value in case of error
     // }
 }
+
+function getImageDir(image_dir, hapCount, sadCount, nonCount)
+{
+    if (image_dir === 'happy' && hapCount < 30)
+    {
+        return 'happy'
+    }
+    else if (sadCount < 30)
+    {
+        return 'sad'
+    }
+    else if (nonCount < 30)
+    {
+        return 'none'
+    }
+
+    if (image_dir === 'sad' && sadCount < 30)
+    {
+        return 'sad'
+    }
+    else if (hapCount < 30)
+    {
+        return 'happy'
+    }
+    else if (nonCount < 30)
+    {
+        return 'none'
+    }
+
+    if (image_dir === 'none' && nonCount < 30)
+    {
+        return 'none'
+    }
+    else if (hapCount < 30)
+    {
+        return 'happy'
+    }
+    else if (sadCount < 30)
+    {
+        return 'sad'
+    }
+}
