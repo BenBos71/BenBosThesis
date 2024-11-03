@@ -19,20 +19,13 @@
             var randomIndex = Math.floor(Math.random() * images.length);
             var image_dir = images[randomIndex];
 
-            const hcount = fetchSurveyCount('happy', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
-            const hapCount = sessionStorage.getItem('surveyCount');
-            console.log("Happy COUNT: [" + hapCount + "]");
+            const hcount = await fetchSurveyCount('happy', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
             console.log("Happy COUNT ret: [" + hcount + "]");
 
-            const sCount = fetchSurveyCount('sad', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
-            const sadCount = sessionStorage.getItem('surveyCount');
-            console.log("Sad COUNT: [" + sadCount + "]");
+            const sCount = await fetchSurveyCount('sad', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
             console.log("Sad COUNT ret: [" + sCount + "]");
             
-
-            const nCount = fetchSurveyCount('none', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
-            const nonCount = sessionStorage.getItem('surveyCount');
-            console.log("None COUNT: [" + nonCount + "]");
+            const nCount = await fetchSurveyCount('none', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
             console.log("None COUNT ret: [" + nCount + "]");
 
             if (hapCount >= 30 && sadCount >= 30 && nonCount >= 30)
