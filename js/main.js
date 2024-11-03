@@ -112,7 +112,7 @@ window.onclick = function(event) {
 
 async function fetchSurveyCount(pic_emotion, sex, ed_field) {
     try {
-        const response = await fetch('/getSurveyCount', {
+        const response = await fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/getSurveyCount', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ pic_emotion, sex, ed_field })
