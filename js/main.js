@@ -60,43 +60,56 @@ window.onclick = function(event) {
 
 
 // Function to fetch the survey count from the server
-async function fetchSurveyCount(pic_emotion, sex, ed_field) {
+// async function fetchSurveyCount(pic_emotion, sex, ed_field) {
     
-        fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/getSurveyCount', {
+//         fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/getSurveyCount', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({ pic_emotion, sex, ed_field })
+//         })
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error(`HTTP error! status: ${response.status}`);
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             console.log('Survey count:', data.count);
+//             sessionStorage.setItem('surveyCount', data.count);
+//             return data.count;
+//         })
+//         .catch(error => {
+//             console.error('Error fetching survey count:', error);
+//         });
+// }
+
+async function fetchSurveyCount(pic_emotion, sex, ed_field) {
+    try {
+        const response = await fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/getSurveyCount', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ pic_emotion, sex, ed_field })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Survey count:', data.count);
-            sessionStorage.setItem('surveyCount', data.count);
-            return data.count;
-        })
-        .catch(error => {
-            console.error('Error fetching survey count:', error);
         });
-    //     ;
 
-    //     if (!response.ok) {
-    //         throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-    //     const data = await response.json();
-    //     return data.count; // Return the count
-
-    // } catch (error) {
-    //     console.error('Error fetching survey count:', error);
-    //     return null; // Return null or a default value in case of error
-    // }
+        const data = await response.json();
+        console.log('Survey count:', data.count);
+        sessionStorage.setItem('surveyCount', data.count);
+        return data.count;
+        
+    } catch (error) {
+        console.error('Error fetching survey count:', error);
+        throw error;  // Rethrow error if you need to handle it higher up
+    }
 }
+
 
 function getImageDir(image_dir, hapCount, sadCount, nonCount)
 {
