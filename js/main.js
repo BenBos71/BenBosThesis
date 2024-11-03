@@ -100,7 +100,7 @@ async function fetchSurveyCount(pic_emotion, sex, ed_field) {
         }
 
         const data = await response.json();
-        console.log('Survey count:', data.count);
+        console.log('Survey countzzz:', data.count);
         sessionStorage.setItem('surveyCount', data.count);
         return data.count;
         
