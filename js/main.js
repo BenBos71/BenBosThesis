@@ -78,6 +78,7 @@ async function fetchSurveyCount(pic_emotion, sex, ed_field) {
         .then(data => {
             console.log('Survey count:', data.count);
             sessionStorage.setItem('surveyCount', data.count);
+            return data.count;
         })
         .catch(error => {
             console.error('Error fetching survey count:', error);
