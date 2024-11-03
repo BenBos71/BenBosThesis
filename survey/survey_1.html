@@ -19,19 +19,19 @@
             var randomIndex = Math.floor(Math.random() * images.length);
             var image_dir = images[randomIndex];
 
-            var hcount = fetchSurveyCount('happy', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
-            var hapCount = sessionStorage.getItem('surveyCount');
+            const hcount = fetchSurveyCount('happy', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
+            const hapCount = sessionStorage.getItem('surveyCount');
             console.log("Happy COUNT: [" + hapCount + "]");
             console.log("Happy COUNT ret: [" + hcount + "]");
 
-            var sCount = fetchSurveyCount('sad', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
-            var sadCount = sessionStorage.getItem('surveyCount');
+            const sCount = fetchSurveyCount('sad', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
+            const sadCount = sessionStorage.getItem('surveyCount');
             console.log("Sad COUNT: [" + sadCount + "]");
             console.log("Sad COUNT ret: [" + sCount + "]");
             
 
-            var nCount = fetchSurveyCount('none', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
-            var nonCount = sessionStorage.getItem('surveyCount');
+            const nCount = fetchSurveyCount('none', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
+            const nonCount = sessionStorage.getItem('surveyCount');
             console.log("None COUNT: [" + nonCount + "]");
             console.log("None COUNT ret: [" + nCount + "]");
 
