@@ -85,13 +85,36 @@ window.onclick = function(event) {
 //         });
 // }
 
+// async function fetchSurveyCount(pic_emotion, sex, ed_field) {
+//     try {
+//         const response = await fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/getSurveyCount', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({ pic_emotion, sex, ed_field })
+//         });
+
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+
+//         const data = await response.json();
+//         console.log('Survey countzzz:', data.count);
+//         sessionStorage.setItem('surveyCount', data.count);
+//         return data.count;
+        
+//     } catch (error) {
+//         console.error('Error fetching survey count:', error);
+//         throw error;  // Rethrow error if you need to handle it higher up
+//     }
+// }
+
 async function fetchSurveyCount(pic_emotion, sex, ed_field) {
     try {
-        const response = await fetch('https://fierce-escarpment-41876-06bb2cc451d1.herokuapp.com/getSurveyCount', {
+        const response = await fetch('/getSurveyCount', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ pic_emotion, sex, ed_field })
         });
 
@@ -100,15 +123,13 @@ async function fetchSurveyCount(pic_emotion, sex, ed_field) {
         }
 
         const data = await response.json();
-        console.log('Survey countzzz:', data);
-        sessionStorage.setItem('surveyCount', data);
+        console.log('Survey count:', data.count);
         return data.count;
-        
     } catch (error) {
         console.error('Error fetching survey count:', error);
-        throw error;  // Rethrow error if you need to handle it higher up
     }
 }
+
 
 
 function getImageDir(image_dir, hapCount, sadCount, nonCount)
