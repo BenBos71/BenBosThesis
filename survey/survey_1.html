@@ -28,11 +28,7 @@
             const nCount = await fetchSurveyCount('none', sessionStorage.getItem('sex'), sessionStorage.getItem('ed_field'));
             console.log("None COUNT ret: [" + nCount + "]");
 
-            if (hcount >= 10 && sCount >= 10 && nCount >= 10)
-            {
-                /* nothing special */
-            }
-            else
+            if (hcount < 10 || sCount < 10 || nCount < 10)
             {
                 image_dir = getImageDir(image_dir, hcount, sCount, nCount);
             }

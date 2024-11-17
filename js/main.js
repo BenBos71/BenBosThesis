@@ -134,41 +134,41 @@ async function fetchSurveyCount(pic_emotion, sex, ed_field) {
 
 function getImageDir(image_dir, hapCount, sadCount, nonCount)
 {
-    if (image_dir === 'happy' && hapCount < 30)
+    if (image_dir === 'happy' && hapCount < 10)
     {
         return 'happy'
     }
-    else if (sadCount < 30)
+    else if (sadCount < 10)
     {
         return 'sad'
     }
-    else if (nonCount < 30)
+    else if (nonCount < 10)
     {
         return 'none'
     }
 
-    if (image_dir === 'sad' && sadCount < 30)
+    if (image_dir === 'sad' && sadCount < 10)
     {
         return 'sad'
     }
-    else if (hapCount < 30)
+    else if (hapCount < 10)
     {
         return 'happy'
     }
-    else if (nonCount < 30)
+    else if (nonCount < 10)
     {
         return 'none'
     }
 
-    if (image_dir === 'none' && nonCount < 30)
+    if (image_dir === 'none' && nonCount < 10)
     {
         return 'none'
     }
-    else if (hapCount < 30)
+    else if (hapCount < 10)
     {
         return 'happy'
     }
-    else if (sadCount < 30)
+    else if (sadCount < 10)
     {
         return 'sad'
     }
